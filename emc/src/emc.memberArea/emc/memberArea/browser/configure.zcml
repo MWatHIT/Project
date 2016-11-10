@@ -1,0 +1,165 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"  
+    i18n_domain="emc.memberArea">
+
+  <!-- Register static resource directory -->
+	<browser:resourceDirectory
+  		name="emc.memberArea"
+  		directory="static" />
+
+   <browser:viewlet
+     name="favorite"
+     for="emc.memberArea.interfaces.IFavoritable"
+     view="plone.app.layout.globals.interfaces.IViewView"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+     layer="..interfaces.IFavoritableLayer"
+     class=".viewlets.Favorite"
+     template="templates/favorite_viewlet.pt"
+     permission="emc.memberArea.view_favorite"
+     />
+<browser:page
+  name="dofavorite"
+  for="emc.memberArea.interfaces.IFavoritable"
+  layer="..interfaces.IFavoritableLayer"
+  class=".favorite_action.Favorite"
+  permission="emc.memberArea.do_favorite"
+  />
+
+<browser:page
+  name="undofavorite"
+  for="emc.memberArea.interfaces.IFavoritable"
+  layer="..interfaces.IFavoritableLayer"
+  class=".favorite_action.UnFavorite"
+  permission="emc.memberArea.do_favorite"
+  />
+  <browser:page
+      name="baseview"
+      for="*"
+      class=".contents_view.BaseView"
+      template="templates/base_view.pt"
+      permission="zope2.View"
+      />
+  <browser:page
+      name="ajax_view"
+      class=".contents_view.MessageboxView"
+      for="emc.memberArea.content.messagebox.IMessagebox"
+      template="templates/messagebox_ajax_view.pt"
+      permission="emc.memberArea.view_message"
+      />
+
+  <browser:page
+      name="view"
+      class=".workspace.WorkspaceView"
+      for="emc.memberArea.content.workspace.IWorkspace"
+      layer="emc.theme.interfaces.IThemeSpecific"
+      template="templates/workspace.pt"
+      permission="emc.memberArea.view_message"
+      menu="plone_displayviews"
+      title="workspace view"
+      /> 
+
+  <browser:page
+      name="view"
+      class=".contents_view.MessageboxListView"
+      for="emc.memberArea.content.messagebox.IMessagebox"
+      template="templates/messagebox_listing.pt"
+      permission="emc.memberArea.view_message"
+      menu="plone_displayviews"
+      title="messagebox table view"
+      /> 
+  <browser:page
+      name="view"
+      class=".contents_view.outputboxListView"
+      for="emc.memberArea.content.outputbox.IOutputbox"
+      template="templates/outputbox_listing.pt"
+      permission="emc.memberArea.view_message"
+      menu="plone_displayviews"
+      title="outputbox table view"
+      />
+  <browser:page
+      name="view"
+      class=".contents_view.FavoriteListView"
+      for="emc.memberArea.content.favorite.IFavorite"
+      template="templates/myfavoritefolder.pt"
+      permission="emc.memberArea.view_favorite"
+      menu="plone_displayviews"
+      title="favorite table view"
+      />
+  <browser:page
+      name="view"
+      class=".contents_view.TodoListView"
+      for="emc.memberArea.content.todo.ITodo"
+      template="templates/todo_listing.pt"
+      permission="emc.memberArea.view_todoitem"
+      menu="plone_displayviews"
+      title="todoitems table view"
+      />      
+  <browser:page
+      name="view"
+      class=".contents_view.MyfolderListView"
+      for="emc.memberArea.content.myfolder.IMyfolder"
+      template="templates/myfolder.pt"
+      permission="emc.memberArea.view_favorite"
+      menu="plone_displayviews"
+      title="personal folder table view"
+      />      
+  <browser:page
+      name="view"
+      class=".contents_view.MessageView"
+      for="emc.memberArea.content.message.IMessage"
+      template="templates/message_view.pt"
+      permission="emc.memberArea.view_message"
+      menu="plone_displayviews"
+      title="message view"
+      />
+
+<!--
+  <browser:page
+      name="message_ajax"
+      class=".contents_view.MessageAjaxSearch"
+      for="emc.memberArea.content.messagebox.IMessagebox"
+  	  layer="emc.theme.interfaces.IThemeSpecific"
+      permission="emc.memberArea.view_message"
+      />
+  <browser:page
+      name="more"
+      class=".contents_view.MessageMore"
+      layer="emc.theme.interfaces.IThemeSpecific"
+      for="*"
+      permission="zope2.View"
+      />      
+  <browser:page
+      name="ajaxmessagestate"
+      class=".contents_view.MessageState"
+      layer="emc.theme.interfaces.IThemeSpecific"
+      for="emc.memberArea.content.message.IMessage"
+      permission="emc.memberArea.view_message"
+      />
+
+  <browser:page
+      name="ajax_todoitem_state"
+      class=".contents_view.TodoitemState"
+      layer="emc.theme.interfaces.IThemeSpecific"
+      for="emc.memberArea.content.todoitem.ITodoitem"
+      permission="emc.memberArea.view_todoitem"
+      />
+                 
+  <browser:page
+      name="ajax"
+      class=".contents_view.FavoriteAjax"
+      for="emc.memberArea.content.favorite.IFavorite"
+  	  layer="emc.theme.interfaces.IThemeSpecific"
+      permission="emc.memberArea.view_favorite"
+      />
+      -->                                             
+  <browser:page
+      name="todoitem_view"
+      for="emc.memberArea.content.todoitem.ITodoitem"
+      template="templates/todoitem.pt"
+      permission="emc.memberArea.view_todoitem"
+      menu="plone_displayviews"
+      title="Todoitem table view"
+      />  		       
+</configure>

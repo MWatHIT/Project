@@ -1,0 +1,17 @@
+<configure 
+	xmlns="http://namespaces.zope.org/zope"
+	xmlns:db="http://namespaces.zope.org/db">
+	
+	<include package="z3c.saconfig" file="meta.zcml" />
+	
+	<db:engine 
+	name="oracle"
+	url="oracle+cx_oracle://HR:tome5857@db.315ok.org:1521/test"
+	pool_recycle="3600"
+	/>
+	
+	<db:session
+	name="pas.plugins.sqlalchemy"
+	engine="oracle" />
+</configure>
+

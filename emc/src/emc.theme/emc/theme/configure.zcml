@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"    
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="emc.theme">
+
+  <include package="plone.app.theming" />
+  <genericsetup:registerProfile
+      name="default"
+      title="emc.theme"
+      directory="profiles/default"
+      description="Installs the emc.theme package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <!-- -*- extra stuff goes here -*- -->
+  <genericsetup:registerProfile
+      name="registerless"
+      title="emctheme Theme - Register less resources as variables"
+      directory="profiles/registerless"
+      description='This enables the compilation with the default scripts for custom Diazo themes.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Diazo themes -->
+  <plone:static directory="theme" name="emc.theme" type="theme"/>  
+</configure>

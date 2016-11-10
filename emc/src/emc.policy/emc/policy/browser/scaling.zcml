@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <include package="zope.annotation"/>
+
+  <browser:page
+    name="images"
+    for="plone.namedfile.interfaces.IImageScaleTraversable"
+    layer="emc.theme.interfaces.IThemeSpecific"
+    class=".scaling.ImageScaling"
+    allowed_attributes="scale"
+    permission="zope2.View"
+    />
+  <browser:page
+      name="image_view2"
+      for="plone.app.contenttypes.interfaces.IImage"
+      template="templates/image.pt"
+      layer="emc.theme.interfaces.IThemeSpecific"
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="View Image2"
+      />
+</configure>

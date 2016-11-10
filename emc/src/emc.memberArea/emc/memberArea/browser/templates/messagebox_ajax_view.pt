@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
+      i18n:domain="emc.memberArea">        
+
+<head>
+   <metal:block fill-slot="style_slot">
+       <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++emc.memberArea/iphone_style.css"
+            />
+   </metal:block>
+  </head>
+<body>
+	<div metal:fill-slot="main">
+		<div id="ajaxsearch" style="display: none" 
+			tal:attributes="data-ajax-target python:context.absolute_url() + '/@@message_ajax'"></div>
+		<div id="ajaxreq" style="display: none" 
+			tal:attributes="data-ajax-target python:context.absolute_url() + '/@@ajaxmessagestate'"></div>			
+
+        <!--主页面内容start-->
+
+				<div class="text-center page-header">
+           <h3><strong i18n:translate="">personal message box information</strong></h3>           
+       	</div>            
+            <!--搜索结果列表 start-->
+         <div  class="row">
+           <table class="table table-striped table-bordered table-condensed listing col-xs-12">
+       		<thead>
+       		<tr class="row" data-toggle="tooltip" title="点击排序">
+            <th class="col-md-4" i18n:translate="">name</th>
+            <th class="col-md-2" i18n:translate="">sender</th>
+            <th class="col-md-2" i18n:translate="">date</th>
+            <th class="col-md-2" i18n:translate="">status</th>
+            <th class="col-md-2" i18n:translate="">operates</th>              
+       	  </tr>
+       		</thead>
+           <tbody id="searchResultDiv">
+           				        <!-- here will  be replaced  dynamicly by ajax -->
+           </tbody>            			
+           </table>
+					</div>
+            <!--搜索结果列表 End-->
+            <!--分页 start-->
+           <nav class="row">          	
+            <ul id="bottomPageId" class="col-xs-11 pagination col-sm-3 center">
+            	<li><a class="page" href="javascript:void(0)">首页</a></li>
+            	<li><a class="page" href="javascript:void(0)">上一页</a></li>
+            	<li><a class="page_over num" href="#">1</a></li>
+            	<li><a class="page num" href="javascript:searchEvent(2,10)">2</a></li>
+            	<li><a class="page num" href="javascript:searchEvent(3,10)">3</a></li>
+            	<li><a class="page" href="javascript:searchEvent(2,10)">下一页</a></li>
+            	<li><a class="page" href="javascript:searchEvent(16,10)">末页</a></li>
+            </ul>
+				  </nav>
+            <!--分页 end-->				  
+
+        <!--主页面内容 End-->		
+	</div>
+  <metal:js fill-slot="javascript_bottom_slot">
+  	<!--this output link js is for pagination area-->
+	<script type="text/javascript"
+		tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+     tal:attributes="src string:${navroot}/++resource++emc.memberArea/ajaxsearch.min.js">	  	
+	</script>
+	<script type="text/javascript">
+		//response to operative area click event 
+$(document).ready(function(){
+	$('#searchResultDiv').on('click','.iphone-style', function(){
+		checkboxID = '#' + $(this).attr('rel');
+		if ($(checkboxID)[0].checked == false) {
+			var action = $("#ajaxreq").attr('data-ajax-target');
+			var id = $(this).siblings('input').attr('id');
+			var state = $(this).siblings('input').attr('data-state');
+			var states = {'id': id,'state': state};	
+			$(this).animate({backgroundPosition: '0% 100%'},500);
+			$(checkboxID)[0].checked = true;
+			$(this).removeClass('off').addClass('on');			
+			$.post(action, states, function(result){
+				if (result) {
+				}
+				else {return false;}
+			}, 'json');
+		}else {
+			var action = $("#ajaxreq").attr('data-ajax-target');
+			var id = $(this).siblings('input').attr('id');
+			var state = $(this).siblings('input').attr('data-state');
+			var states = {'id': id,'state': state};
+			$(this).animate({backgroundPosition: '100% 0%'},500);
+			$(checkboxID)[0].checked = false;
+			$(this).removeClass('on').addClass('off');			
+			$.post(action, states, function(result){
+				if (result) {			
+				}
+			else {return false;}
+			}, 'json');
+		}
+	});
+		$('[data-toggle="tooltip"]').tooltip() 	
+	})
+</script>		
+	</metal:js>
+</body>
+</html>

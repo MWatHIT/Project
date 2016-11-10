@@ -1,0 +1,52 @@
+<registry>
+  <record name="collective.gtags.interfaces.ITagSettings.allow_uncommon" interface="collective.gtags.interfaces.ITagSettings" field="allow_uncommon">
+    <field type="plone.registry.field.Bool">
+      <default>True</default>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">If enabled, it will be possible to add tags other than those in the list below to content objects that support this. If disabled, all tags must be in the pre-defined list.</description>
+      <required>False</required>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Allow uncommon tags globally</title>
+    </field>
+    <value>True</value>
+  </record>
+  <record name="collective.gtags.interfaces.ITagSettings.required_categories" interface="collective.gtags.interfaces.ITagSettings" field="required_categories">
+    <field type="plone.registry.field.Set">
+      <default/>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">If you want to ensure that users pick at least one tag in a given category, list the category name here.</description>
+      <title>Required categories</title>
+      <value_type type="plone.registry.field.TextLine">
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Category</title>
+      </value_type>
+    </field>
+    <value>
+      <element>项目</element>
+    </value>
+  </record>
+  <record name="collective.gtags.interfaces.ITagSettings.tags" interface="collective.gtags.interfaces.ITagSettings" field="tags">
+    <field type="plone.registry.field.Set">
+      <default/>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName.</description>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Pre-defined tags</title>
+      <value_type type="plone.registry.field.TextLine">
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Tag</title>
+      </value_type>
+    </field>
+    <value>
+      <element>项目-规范</element>
+      <element>项目-标准</element>
+      <element>项目-设计</element>
+    </value>
+  </record>
+  <record name="collective.gtags.interfaces.ITagSettings.unique_categories" interface="collective.gtags.interfaces.ITagSettings" field="unique_categories">
+    <field type="plone.registry.field.Set">
+      <default/>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">If you want to ensure that users pick at most one tag in a given category, list the category name here.</description>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Unique categories</title>
+      <value_type type="plone.registry.field.TextLine">
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="collective.gtags" ns0:translate="">Category</title>
+      </value_type>
+    </field>
+    <value>
+      <element>项目</element>
+    </value>
+  </record>
+</registry>

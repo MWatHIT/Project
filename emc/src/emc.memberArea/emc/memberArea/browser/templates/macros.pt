@@ -1,0 +1,53 @@
+<metal:block define-macro="action-bar-macro" i18n:domain="emc.project">
+   <div class="row action-bar" tal:condition="python:view.canbeRead()">
+		<div class="col-md-3 col-md-offset-3">
+			<div id="base_view">
+					<span>
+						<a  tal:attributes="href python:context.absolute_url() +'/@@view'" 
+						title="基本视图" 
+						class="btn btn-primary">基本视图</a>
+					</span>					
+		  	</div>
+		</div>		  	
+		<div class="col-md-3">		  		
+			<div id="listing_view">
+					<span tal:condition="python:view.hasListingView()">
+						<a  tal:attributes="href python:context.absolute_url() +'/@@listing_view'" 
+						title="列表视图" 
+						class="btn btn-primary">列表视图</a>
+					</span>					
+		  	</div>
+		</div>		  	
+		<div class="col-md-3">
+			<div id="summary_view">
+					<span tal:condition="python:view.hasSummaryView()">
+						<a  tal:attributes="href python:context.absolute_url() +'/@@summary_view'" 
+						title="摘要视图" 
+						class="btn btn-primary">摘要视图</a>
+					</span>					
+		  	</div>			  			  					
+		</div>
+	</div>					
+</metal:block>
+		<a href="javascript:void(0)" onclick="outdisplaytitle()">
+			<span id="edittitle" class="edit" i18n:translate="edit">edit</span>
+		</a>
+		<div id="modifytitle" tal:attributes="modifytitle string:${context/absolute_url}/@@modify-title">
+			<form id="modifytitleform" style=" display:none;">
+				<textarea tal:content="context/title"/>
+				<span tal:replace="structure context/@@authenticator/authenticator"/>
+				<button name="ok" i18n:translate="ok">确定</button>
+				<button name="cancel" i18n:translate="cancel">取消</button>
+			</form>
+		</div>
+		<a href="javascript:void(0)" onclick="outdisplaydesc()">
+			<span id="editdesc" class="edit" i18n:translate="edit">edit</span>
+		</a>
+		<div id="modifydesc" tal:attributes="modifydesc string:${context/absolute_url}/@@modify-description">
+			<form id="modifydescform" style=" display:none;">
+				<textarea tal:content="context/description"/>
+				<span tal:replace="structure context/@@authenticator/authenticator"/>
+				<button name="ok" i18n:translate="ok">确定</button>
+				<button name="cancel" i18n:translate="cancel">取消</button>
+			</form>
+		</div> 

@@ -1,0 +1,49 @@
+<tal:snippet omit-tag="">
+  <div class="favoriting" tal:define="isFavorited view/favorited">
+  		<div id="ajaxreq" class="hiddenStructure" 
+			tal:attributes="data-ajax-target python:context.absolute_url()"></div>
+    <div class="text-center" id="current_favoriting" tal:condition="view/has_favorites">
+      当前收藏这个内容的用户有<span class="txtvalue badge" tal:content="view/number">200</span>个。
+    </div>
+    <div id="alreadyfavorited" 
+    	tal:attributes="style python: isFavorited and 'display:inline;;' or 'display:none;;'"
+    	class="favoriting_option">
+      你已经收藏了这个内容！
+      <div class="text-right"><button class="btn btn-primary" type="button">取消收藏</button>
+      </div>
+    </div>
+    <div id="notyetfavorited" class="favoriting_option"
+            tal:attributes="style python: isFavorited and 'display:none;;' or 'display:inline;;'">
+      你是否收藏该内容？
+      <div class="text-right"><button class="btn btn-primary" type="button">收藏</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    // JQuery standard mechanism. Only execute the code after the page
+    // finished loading.
+    $(document).ready(function(){
+    $("#alreadyfavorited").on("click","button",function () {
+            $.post($("#ajaxreq").attr("data-ajax-target") + "/undofavorite", function () {
+                var old = $("#current_favoriting span").html();
+                var newnum = (Number(old) - 1).toString();
+                $("#current_favoriting span").html(newnum);
+                $("#alreadyfavorited").hide();
+                $("#notyetfavorited").show();
+                return false;                
+                            });
+            });
+    $("#notyetfavorited").on("click","button",function () {
+            $.post($("#ajaxreq").attr("data-ajax-target") + "/dofavorite", function () {
+                var old = $("#current_favoriting span").html();
+                var newnum = (Number(old) + 1).toString();
+                $("#current_favoriting span").html(newnum);
+                $("#alreadyfavorited").show();
+                $("#notyetfavorited").hide();
+                return false;
+         				   });                
+            }); 
+
+    });
+  </script>
+</tal:snippet>

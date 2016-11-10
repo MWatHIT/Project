@@ -1,0 +1,67 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-12-01 14:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh-cn\n"
+"Language-Name: Chinese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.externaleditor\n"
+
+#: ./browser/views.py:138
+msgid "External Editor property in your preferences is not activated."
+msgstr "在个人惯用选项中，‘外部编辑器’未被启用"
+
+#: ./browser/controlpanel.py:64
+msgid "External Editor settings"
+msgstr "外部编辑器设置"
+
+#: ./browser/controlpanel.py:65
+msgid "External Editor settings."
+msgstr "外部编辑器设置"
+
+#: ./browser/views.py:136
+msgid "External Editor site property is not activated. Please contact your administrator."
+msgstr "外部编辑器设置站点属性没有开启，请联系管理员解决。"
+
+#: ./profiles/default/controlpanel.xml
+msgid "ExternalEditor"
+msgstr "外部编辑器"
+
+#: ./browser/views.py:140
+msgid "This item is locked."
+msgstr "这个内容已被锁定"
+
+#: ./browser/views.py:142
+msgid "You are not allowed to use External Editor on this item."
+msgstr "这个内容不允许你使用外部编辑器"
+
+#. Default: "Determines if the External Editor feature is enabled. This feature requires a special client-side application installed. The users also have to enable this in their preferences."
+#: ./browser/controlpanel.py:25
+msgid "help_externaleditor_enabled"
+msgstr "是否启用外部编辑器特性，这个特性要求安装一个客户端程序，并且也要求用户的个人惯用选项中关于‘外部编辑器’的选项启用"
+
+#. Default: "Choose here the content types where the External Editor action will be available"
+#: ./browser/controlpanel.py:39
+msgid "help_externaleditor_enabled_types"
+msgstr "选择哪种内容类型可以用外部编辑器编辑"
+
+#. Default: "Enable External Editor feature"
+#: ./browser/controlpanel.py:23
+msgid "label_externaleditor_enabled"
+msgstr "启用外部编辑器功能"
+
+#. Default: "Content types editable with External Editor"
+#: ./browser/controlpanel.py:35
+msgid "label_externaleditor_enabled_types"
+msgstr "可以用外部编辑器编辑的内容类型"
+

@@ -1,0 +1,13 @@
+from Products.CMFPlone import PloneMessageFactory as _p
+#_p = MessageFactory('plone')
+dummy = _p("FangAn")
+dummy = _p("ChuYang")
+dummy = _p("ChuYang1")
+dummy = _p("ChuYang2")
+dummy = _p("ShiYang")
+dummy = _p("ShiYang1")
+dummy = _p("ShiYang2")
+dummy = _p("ZhengYang")
+dummy = _p("ZhengYang1")
+dummy = _p("ZhengYang2")
+dummy = _p("DingXing")

@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xtshzz.policy\n"
+"POT-Creation-Date: 2015-02-14 00:52+0000\n"
+"PO-Revision-Date: 2015-02-14 09:20+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: 315ok.org <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh_CN\n"
+"Language-Name: Chinese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+msgid "File review"
+msgstr ""
+
+msgid "External Edit"
+msgstr ""
+
+msgid "Plot view"
+msgstr ""
+
+msgid "Source code"
+msgstr ""
+
+# plone.app.versioningbehavior/behaviors.py
+msgid "label_change_note"
+msgstr ""
+
+msgid "help_change_note"
+msgstr ""
+
+#: ./browser/contents/__init__.py:203
+msgid "Title"
+msgstr ""
+
+msgid "listingheader_title"
+msgstr ""
+
+#project doc workflow
+msgid "pendingview"
+msgstr ""
+
+msgid "pendingprocess"
+msgstr ""
+
+msgid "Pending view"
+msgstr ""
+
+msgid "Pending process"
+msgstr ""
+
+msgid "Feedback"
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "Draft"
+msgstr ""
+
+msgid "Read for feedback"
+msgstr ""
+
+msgid "Edit for feedback"
+msgstr ""
+
+msgid "Review"
+msgstr ""
+
+msgid "Retract to draft"
+msgstr ""
+
+# emc memberArea todoitem workflow
+msgid "Unprocessed"
+msgstr ""
+
+msgid "Processed"
+msgstr ""
+
+msgid "Mark as processed"
+msgstr ""
+
+msgid "Mark as unprocessed"
+msgstr ""
+
+# emc memberArea message workflow
+msgid "Unreaded"
+msgstr ""
+
+msgid "Readed"
+msgstr ""
+
+msgid "Mark as readed"
+msgstr ""
+
+msgid "Mark as unreaded"
+msgstr ""
+
+# emc.project view
+msgid "system Ajax view"
+msgstr ""

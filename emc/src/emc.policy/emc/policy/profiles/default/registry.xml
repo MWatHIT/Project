@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<registry>
+  <!--resource -->
+  
+  <!-- Bundles -->
+  <records prefix="plone.bundles/emc-legacy"
+            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    
+    <value key="depends">plone</value>
+    <value key="jscompilation">++resource++emc.policy/emc-legacy-custom.js</value>
+    <value key="last_compilation">2015-08-14 00:00:00</value>
+    <value key="compile">False</value>
+    <value key="enabled">True</value>
+  </records>
+
+
+<!-- navigation setting -->
+  <record name="plone.sitemap_depth" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="sitemap_depth">
+    <field type="plone.registry.field.Int">
+      <default>3</default>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Number of folder levels to show in the site map.</description>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Sitemap depth</title>
+    </field>
+    <value>5</value>
+  </record>
+  <record name="plone.displayed_types" interface="Products.CMFPlone.interfaces.controlpanel.INavigationSchema" field="displayed_types">
+    <field type="plone.registry.field.Tuple">
+      <default>
+        <element>Image</element>
+        <element>File</element>
+        <element>Link</element>
+        <element>News Item</element>
+        <element>Folder</element>
+        <element>Document</element>
+        <element>Event</element>
+      </default>
+      <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">The content types that should be shown in the navigation and site map.</description>
+      <required>False</required>
+      <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Displayed content types</title>
+      <value_type type="plone.registry.field.Choice">
+        <vocabulary>plone.app.vocabularies.ReallyUserFriendlyTypes</vocabulary>
+      </value_type>
+    </field>
+    <value>
+      <element>Image</element>
+      <element>File</element>
+      <element>Link</element>
+      <element>News Item</element>
+      <element>Folder</element>
+      <element>Document</element>
+      <element>Event</element>
+      <element>emc.kb.folder</element>
+      <element>emc.kb.kbfolder</element>
+      <element>emc.kb.ormfolder</element>       
+      <element>emc.project.projectFolder</element>
+      <element>emc.project.project</element>
+      <element>emc.project.team</element>
+      <element>emc.memberArea.workspace</element>      
+      <element>emc.memberArea.inputbox</element>
+      <element>emc.memberArea.outputbox</element>
+      <element>emc.memberArea.message</element>
+      <element>emc.memberArea.myfolder</element>
+      <element>emc.memberArea.inputbox</element>
+      <element>emc.memberArea.todo</element>
+      <element>emc.memberArea.favorite</element>
+      <element>emc.bokeh.fearture</element>                                           
+    </value>
+  </record>
+
+<records interface="Products.CMFPlone.interfaces.ISecuritySchema" prefix="plone">
+    <value key="enable_self_reg">True</value>
+    <value key="enable_user_pwd_choice">True</value>
+    <value key="enable_user_folders">True</value>    
+</records>
+<!-- custom TinyMCE templates -->	
+<!-- activate the plugin -->
+<record name="plone.custom_plugins" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="custom_plugins">
+    <field type="plone.registry.field.List">
+        <default/>
+        <description xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+              ns0:domain="plone"
+              ns0:translate="">Enter a list of custom plugins which will be loaded in the editor. Format is pluginname|location, one per line.</description>
+        <required>False</required>
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+              ns0:domain="plone"
+              ns0:translate="">Custom plugins</title>
+        <value_type type="plone.registry.field.TextLine" />
+    </field>
+    <value>
+        <element>template|+plone+static/components/tinymce-builded/js/tinymce/plugins/template</element>
+    </value>
+</record>
+
+<!-- register our template -->
+
+<record name="plone.templates" interface="Products.CMFPlone.interfaces.controlpanel.ITinyMCESchema" field="templates">
+  <field type="plone.registry.field.Text">
+    <default></default>
+    <description xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+        ns0:domain="plone"
+        ns0:translate="help_tinymce_templates">Enter the list of templates in json format
+        http://www.tinymce.com/wiki.php/Plugin:template</description>
+    <required>False</required>
+    <title xmlns:ns0="http://xml.zope.org/namespaces/i18n"
+        ns0:domain="plone"
+        ns0:translate="label_tinymce_templates">Templates</title>
+  </field>
+  <value>[{"title": "EMC实验", "url": "++theme++emc.theme/tinymce_templates/emc_experiment.html"},
+  	{"title": "EMC分析", "url": "++theme++emc.theme/tinymce_templates/emc_analysis.html"},
+  	{"title": "故障诊断", "url": "++theme++emc.theme/tinymce_templates/emc_diagonose.html"},
+  	{"title": "综合评估", "url": "++theme++emc.theme/tinymce_templates/comprehensive_evaluation.html"}]</value>
+</record>
+</registry>

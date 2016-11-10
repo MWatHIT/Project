@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:plone="http://namespaces.plone.org/plone"    
+    i18n_domain="emc.kb">
+
+  <!-- Register static resource directory -->
+	<browser:resourceDirectory
+  		name="emc.kb"
+  		directory="static" /> 		
+
+      
+    <browser:page
+        name="model_listings"
+        template="templates/model_listings.pt"
+        for="emc.kb.contents.ormfolder.Iormfolder"
+        permission="emc.kb.input_db"
+        class=".ajax_listing.ModelView"/>
+    <browser:page
+        name="input_model"
+        template="templates/input_model.pt"
+        for="emc.kb.contents.ormfolder.Iormfolder"
+        permission="emc.kb.search_db"
+        class=".ajax_listing.InputModel"/>
+    <browser:page
+        name="update_model"
+        template="templates/update_model.pt"
+        for="emc.kb.contents.ormfolder.Iormfolder"
+        permission="emc.kb.search_db"
+        class=".ajax_listing.UpdateModel"/>
+    <browser:page
+        name="delete_model"
+        template="templates/delete_model.pt"
+        for="emc.kb.contents.ormfolder.Iormfolder"
+        permission="emc.kb.search_db"
+        class=".ajax_listing.DeleteModel"/>                                          
+</configure>

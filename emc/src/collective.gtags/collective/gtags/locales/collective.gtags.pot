@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2016-01-04 12:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./interfaces.py:97
+msgid "${category} is not a valid category"
+msgstr ""
+
+#: ./interfaces.py:26
+msgid "Allow uncommon tags"
+msgstr ""
+
+#: ./interfaces.py:42
+#: ./profiles/default/registry.xml
+msgid "Allow uncommon tags globally"
+msgstr ""
+
+#: ./behaviors.py:31
+msgid "Applicable tags"
+msgstr ""
+
+#: ./behaviors.py:25
+msgid "Categorization"
+msgstr ""
+
+#: ./interfaces.py:68
+#: ./profiles/default/registry.xml
+msgid "Category"
+msgstr ""
+
+#: ./interfaces.py:43
+#: ./profiles/default/registry.xml
+msgid "If enabled, it will be possible to add tags other than those in the list below to content objects that support this. If disabled, all tags must be in the pre-defined list."
+msgstr ""
+
+#: ./interfaces.py:27
+msgid "If enabled, it will be possible to add tags other than those in the pre-defined tags list"
+msgstr ""
+
+#: ./interfaces.py:73
+#: ./profiles/default/registry.xml
+msgid "If you want to ensure that users pick at least one tag in a given category, list the category name here."
+msgstr ""
+
+#: ./interfaces.py:63
+#: ./profiles/default/registry.xml
+msgid "If you want to ensure that users pick at most one tag in a given category, list the category name here."
+msgstr ""
+
+#: ./field.py:18
+msgid "Invalid tags"
+msgstr ""
+
+#: ./interfaces.py:53
+#: ./profiles/default/registry.xml
+msgid "List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName."
+msgstr ""
+
+#: ./browser/controlpanel.py:16
+msgid "Please enter details of available tags"
+msgstr ""
+
+#: ./interfaces.py:52
+#: ./profiles/default/registry.xml
+msgid "Pre-defined tags"
+msgstr ""
+
+#: ./interfaces.py:19
+msgid "Set to False to disable validation against globally specified unique and required categories."
+msgstr ""
+
+#: ./field.py:79
+#: ./interfaces.py:58
+#: ./profiles/default/registry.xml
+msgid "Tag"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+msgid "Tagging"
+msgstr ""
+
+#: ./browser/controlpanel.py:15
+msgid "Tagging settings"
+msgstr ""
+
+#: ./behaviors.py:30
+msgid "Tags"
+msgstr ""
+
+#: ./interfaces.py:11
+msgid "There must be a least one tag available for each category selected."
+msgstr ""
+
+#: ./interfaces.py:62
+#: ./profiles/default/registry.xml
+msgid "Unique categories"
+msgstr ""
+
+#: ./interfaces.py:18
+msgid "Validate categories"
+msgstr ""
+
+#: ./field.py:46
+msgid "_"
+msgstr ""
+
+#. Default: "Add row"
+#: ./browser/tags_input.pt:37
+msgid "add_row"
+msgstr ""
+
+#. Default: "You must enter a tag in each of the following categories: ${categories}"
+#: ./browser/tags_input.pt:52
+msgid "note_required_categories"
+msgstr ""
+
+#. Default: "Note: You are using one or more uncommon tags: ${tags}"
+#: ./browser/tags_input.pt:66
+msgid "note_uncommon_tag"
+msgstr ""
+
+#. Default: "You may have at most one tag in the following categories: ${unique-categories}"
+#: ./browser/tags_input.pt:59
+msgid "note_unique_categories"
+msgstr ""
+

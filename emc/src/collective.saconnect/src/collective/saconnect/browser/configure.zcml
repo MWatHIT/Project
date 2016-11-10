@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+  <include
+      file="permissions.zcml"
+      package="Products.CMFCore"
+  />
+  <browser:resource
+      file="saconnect-icon.png"
+      name="saconnect-icon.png"
+  />
+  <browser:page
+      class=".panel.SQLAlchemyConnectionsView"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      layer="collective.saconnect.interfaces.ICollectiveSAConnectLayer"
+      name="saconnect-controlpanel"
+      permission="cmf.ManagePortal"
+      template="panel.pt"
+  />
+</configure>

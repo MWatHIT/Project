@@ -1,0 +1,59 @@
+<tal:master define="level options/level|python:0;
+                    children options/children | nothing;
+                    bottomLevel options/bottomLevel | nothing;
+                    normalizeString nocall: context/plone_utils/normalizeString;"
+            i18n:domain="plone">
+
+<metal:main
+    define-macro="nav_main"
+    tal:define="enable_parent_clickable view/enable_parent_clickable|true">
+<tal:navitem repeat="node children">
+<li tal:define="show_children   node/show_children;
+                children        node/children;
+                children_num    python:len(children);
+                item_type       node/portal_type;
+                item_url        node/getURL;
+                item_remote_url node/getRemoteUrl;
+                use_remote_url  node/useRemoteUrl | nothing;
+               
+                normalizeString nocall: context/plone_utils/normalizeString;"
+    tal:condition="python:bottomLevel &lt;= 0 or level &lt;= bottomLevel">
+
+    <tal:level define="has_children nocall:children;
+                       children_class python:has_children and ' hasDropDown' or '';
+                       item_class string:state-${node/normalized_review_state}${children_class};
+                       item_clickable python:enable_parent_clickable or not has_children;">
+
+        <a tal:condition="python:children_num > 0 or node['item'].id != 'todo'"
+        	tal:attributes="href python:use_remote_url and item_remote_url or item_url;
+                           title node/Description;
+                           class python:item_clickable and item_class or item_class + ' noClick'">
+            
+            
+            <span tal:replace="node/Title">Selected Item Title</span>
+        </a>
+        <a tal:condition="python:children_num == 0 and node['item'].id == 'todo'" 
+           tal:attributes="href python:use_remote_url and item_remote_url or item_url;
+                           title node/Description;
+                           class python:item_clickable and item_class or item_class + ' noClick'">
+            
+            <span tal:replace="node/Title">Selected Item Title</span>
+            <?python
+            from plone import api
+            pm = api.portal.get_tool(name='portal_membership')
+            userid = pm.getAuthenticatedMember().getId()
+            root = pm.getHomeFolder(userid)
+            total = len(api.content.find(context=root,review_state = 'unprocessed',portal_type='emc.memberArea.todoitem'))
+            ?>
+            <span id="todo" class="badge" tal:content="total">12</span>
+        </a>        
+
+        <ul tal:attributes="class python:'submenu navTree navTreeLevel'+str(level)"
+            tal:condition="python: len(children) > 0 and show_children">
+            <span tal:replace="structure python:view.recurse(children=children, level=level+1, bottomLevel=bottomLevel)" />
+        </ul>
+    </tal:level>
+</li>
+</tal:navitem>
+</metal:main>
+</tal:master>

@@ -1,0 +1,17 @@
+.iphone-style {
+    display: block;
+    width: 87px;
+    height: 28px;
+    background: url("check-square.png") no-repeat;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left:auto;
+    margin-right:auto;
+}
+.off {
+	background-position:100% 0;
+}
+.on {
+	background-position:0 100%;
+}

@@ -1,0 +1,214 @@
+<metal:block define-macro="styles">
+       <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++my315ok.socialorgnization/style.css"
+            />
+</metal:block>
+<metal:block define-macro="report-body" i18n:domain="my315ok.socialorgnization">
+       <div class="row">
+       	<div class="col-xs-12">
+       		<p class="noindent">湘潭市民政局：</p>
+       		<p>本社会团体根据《社会团体登记管理条例》、《民间非营利组织会计制度》等有关规定编制
+       			<span class="focuse" tal:content="python:context.year">2011</span>
+       		年度工作报告书，并保证本报告书内容真实、准确、完整。</p>
+       		<p>请予审查。</p>
+       		<p class="text-right">法定代表人签字：<strong tal:content="python:view.getLegalPerson()">张三</strong></p>
+       		<p class="text-right">（社团印章）</p>       		
+       	</div>
+       </div>
+
+       <div class="row">
+       	<div class="col-sm-2 col-xs-12 col-sm-offset-10">
+       		<div tal:define="org python:view.getOrg();picture nocall:org/image"
+       			tal:condition="nocall:picture">
+       			<img class="img-responsive img-circle" 
+       				tal:attributes="src string:${org/absolute_url}/@@download/picture/${picture/filename};
+                         height picture/_height | nothing;
+                         width picture/_width | nothing;"/>
+          </div> 
+       		<strong class="text-right" tal:content="python:view.created()">2015年4月5日</strong>
+       	</div>      	
+       </div>
+       <div class="row report">
+       	<div class="col-md-6 col-sd-12">
+       		<span class="label"><strong>年检报告书：</strong></span>
+       		<span>
+       			<a tal:attributes="href string:${context/absolute_url}/@@download/report/${context/report/filename}">
+       				点击查看</a>
+       		</span>
+       	</div>
+       	<div class="col-md-6 col-sd-12">
+       		<!--
+       		<span class="label">财务报告书：</span>
+       		<span>
+       			<a tal:attributes="href string:${context/absolute_url}/@@download/report/${context/report/filename}">
+       				点击查看</a>
+       		</span>     -->  		
+       	</div>
+       </div>     
+       <div class="row">
+				<div class="col-xs-12 border">
+             <div class="row text-center border-bottom">
+                <div class="col-xs-12 col-sm-6 right-bottom" >
+                	<span class="text-center">业务主管单位初审意见</span>
+                </div>
+                <div class="col-xs-12 col-sm-6" >
+                	<span class="text-center">登记管理机关审查意见</span>
+                </div>
+              </div>
+             <div class="row">
+                <div class="col-xs-12 col-sm-6 right-bottom" >
+                	<div class="row comments">
+                		<div class="col-xs-12">
+                			<div tal:content="python:context.sponsor_comments"></div>
+                		</div>
+                	</div>
+                	<div class="row comments">
+                		<div class="col-xs-6">
+                				<span class="label">经办人：</span>
+                				<span tal:content="python:view.getSponsorOperator()"></span>
+                		</div>
+                		<div class="col-xs-6">
+                				<span class="label">单位：</span>
+                				<span tal:content="python:view.getSponsorOrg()"></span>
+                		</div>                			
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-offset-6 col-xs-6">
+                			<div  tal:content="python:view.getSponsorAuditDate()">2015年5月7日</div>
+                		</div>                		
+                	</div>                	
+                </div>
+                <div class="col-xs-12 col-sm-6" >
+                	<div class="row comments">
+                		<div class="col-xs-12">
+                			<div  tal:content="python: context.agent_comments"></div>
+                		</div>
+                	</div>
+                	<div class="row comments">
+                		<div class="col-xs-6">
+                				<span class="label">经办人：</span>
+                				<span tal:content="python:view.getAgentOperator()"></span>
+                		</div>
+                		<div class="col-xs-6">
+                				<span class="label">单位：</span>
+                				<span tal:content="python:view.getAgentOrg()"></span>
+                		</div>                			
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-offset-6 col-xs-6">
+                			<div tal:content="python: view.getAgentAuditDate()">2015年5月7日</div>
+                		</div>                		
+                	</div>                	
+                </div>
+              </div>
+              </div>
+              </div>
+              <div class="row" tal:content="structure context/@@publishedview/xtshzz.policy.reviewhistory" />	
+	
+</metal:block>  
+
+<metal:block define-macro="report-body-hidden-attach" i18n:domain="my315ok.socialorgnization">
+       <div class="row">
+       	<div class="col-xs-12">
+       		<p class="noindent">湘潭市民政局：</p>
+       		<p>本社会团体根据《社会团体登记管理条例》、《民间非营利组织会计制度》等有关规定编制
+       			<span class="focuse" tal:content="python:context.year">2011</span>
+       		年度工作报告书，并保证本报告书内容真实、准确、完整。</p>
+       		<p>请予审查。</p>
+       		<p class="text-right">法定代表人签字：<strong tal:content="python:view.getLegalPerson()">张三</strong></p>
+       		<p class="text-right">（社团印章）</p>       		
+       	</div>
+       </div>
+
+       <div class="row">
+       	<div class="col-sm-2 col-xs-12 col-sm-offset-10">
+       		<div tal:define="org python:view.getOrg();picture nocall:org/image"
+       			tal:condition="nocall:picture">
+       			<img class="img-responsive img-circle" 
+       				tal:attributes="src string:${org/absolute_url}/@@download/picture/${picture/filename};
+                         height picture/_height | nothing;
+                         width picture/_width | nothing;"/>
+          </div> 
+       		<strong class="text-right" tal:content="python:view.created()">2015年4月5日</strong>
+       	</div>      	
+       </div>
+       <div class="row report">
+       	<div class="col-md-6 col-sd-12" tal:condition="python:view.canbeRetract()">
+
+       		<span class="label"><strong>年检报告书：</strong></span>
+       		<span>
+       			<a tal:attributes="href string:${context/absolute_url}/@@download/report/${context/report/filename}">
+       				点击查看</a>
+       		</span>
+       	</div>
+       	<div class="col-md-6 col-sd-12">
+       		<!--
+       		<span class="label">财务报告书：</span>
+       		<span>
+       			<a tal:attributes="href string:${context/absolute_url}/@@download/report/${context/report/filename}">
+       				点击查看</a>
+       		</span>     -->  		
+       	</div>
+       </div>     
+       <div class="row">
+				<div class="col-xs-12 border">
+             <div class="row text-center border-bottom">
+                <div class="col-xs-12 col-sm-6 right-bottom" >
+                	<span class="text-center">业务主管单位初审意见</span>
+                </div>
+                <div class="col-xs-12 col-sm-6" >
+                	<span class="text-center">登记管理机关审查意见</span>
+                </div>
+              </div>
+             <div class="row">
+                <div class="col-xs-12 col-sm-6 right-bottom" >
+                	<div class="row comments">
+                		<div class="col-xs-12">
+                			<div tal:content="python:context.sponsor_comments"></div>
+                		</div>
+                	</div>
+                	<div class="row comments">
+                		<div class="col-xs-6">
+                				<span class="label">经办人：</span>
+                				<span tal:content="python:view.getSponsorOperator()"></span>
+                		</div>
+                		<div class="col-xs-6">
+                				<span class="label">单位：</span>
+                				<span tal:content="python:view.getSponsorOrg()"></span>
+                		</div>                			
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-offset-6 col-xs-6">
+                			<div  tal:content="python:view.getSponsorAuditDate()">2015年5月7日</div>
+                		</div>                		
+                	</div>                	
+                </div>
+                <div class="col-xs-12 col-sm-6" >
+                	<div class="row comments">
+                		<div class="col-xs-12">
+                			<div  tal:content="python: context.agent_comments"></div>
+                		</div>
+                	</div>
+                	<div class="row comments">
+                		<div class="col-xs-6">
+                				<span class="label">经办人：</span>
+                				<span tal:content="python:view.getAgentOperator()"></span>
+                		</div>
+                		<div class="col-xs-6">
+                				<span class="label">单位：</span>
+                				<span tal:content="python:view.getAgentOrg()"></span>
+                		</div>                			
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-offset-6 col-xs-6">
+                			<div tal:content="python: view.getAgentAuditDate()">2015年5月7日</div>
+                		</div>                		
+                	</div>                	
+                </div>
+              </div>
+              </div>
+              </div>
+              <div class="row" tal:content="structure context/@@publishedview/xtshzz.policy.reviewhistory" />	
+	
+</metal:block>  

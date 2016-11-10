@@ -1,0 +1,48 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"    
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:monkey="http://namespaces.plone.org/monkey"    
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="emc.policy">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
+  <genericsetup:registerProfile
+      name="default"
+      title="emc.policy"
+      directory="profiles/default"
+      description="Installs the emc.policy package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <!-- -*- extra stuff goes here -*- -->
+    <monkey:patch
+     description="patch when create Member area function fire a createMemberArea event"
+     class ="Products.PlonePAS.tools.membership.MembershipTool"
+     original="loginUser"
+     replacement=".patch.membership.loginUser"
+  /> 
+
+   <include package=".browser" />
+   <include package=".portlets" />   
+   <include package=".patch" />
+   <!-- cancel pas plugin 
+   <include package=".sqlpas" />  
+   -->
+      
+<!-- login redirection to workspace
+<subscriber
+    for="Products.PluggableAuthService.interfaces.events.IUserLoggedInEvent"
+    handler=".subscriber.userLoginedIn"
+    />   
+    -->
+    <genericsetup:importStep
+        name="emc.policy-postInstall"
+        title="emc.policy post_install import step"
+        description="Post install import step from emc.policy"
+        handler=".setuphandlers.post_install">
+        <depends name='typeinfo' />
+    </genericsetup:importStep>
+    
+</configure>

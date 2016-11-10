@@ -1,0 +1,84 @@
+//*// CONTENTS //*//
+
+
+
+body#visual-portal-wrapper.pat-plone .outer-wrapper {
+	[class*="contenttype-"]:before {
+		font-family:"Fontello"; font-size: 100%;
+		padding: 0; margin:0; position: relative; left: inherit; display: inline-block; color: inherit;
+		width: 20px; height: 20px; text-align: center; margin-right: @plone-padding-base-vertical;
+	}
+	.contenttype-folder:before {	content: '\e801';}
+	.contenttype-document:before {	content: '\e80e';}
+	.contenttype-file:before {		content: '\e811';}
+	.contenttype-link:before {		content: '\e806';}
+	.contenttype-image:before {		content: '\e810';}
+	.contenttype-collection:before {content: '\e808';}
+	.contenttype-event:before {		content: '\e809';}
+	.contenttype-news-item:before {	content: '\e80f';}
+ .contenttype-emc-kb-folder:before { content: '\e801';}
+ .contenttype-emc-kb-kbfolder:before { content: '\e801';}
+ .contenttype-emc-kb-ormfolder:before { content: '\e801';}  
+ .contenttype-emc-project-projectfolder:before { content: '\e801';}
+ .contenttype-emc-project-project:before { content: '\e823';}
+ .contenttype-emc-project-team:before { content: '\e834';}
+ .contenttype-emc-project-doc:before { content: '\e80e';}
+ .contenttype-emc-memberarea-workspace:before { content: '\e801';}
+ .contenttype-emc-memberarea-messagebox:before { content: '\e809';}
+ .contenttype-emc-memberarea-message:before { content: '\e81c';}
+ .contenttype-emc-memberarea-inputbox:before { content: '\e809';}
+ .contenttype-emc-memberarea-outputbox:before { content: '\e809';}      
+ .contenttype-emc-memberarea-favorite:before { content: '\e825';} 
+ .contenttype-emc-memberarea-todo:before { content: '\e805';} 
+ .contenttype-emc-memberarea-myfolder:before { content: '\e825';}
+ .contenttype-emc-memberarea-todoitem:before { content: '\e809';}
+ .contenttype-emc-bokeh-fearture:before { content: '\e826';}
+ .contenttype-emc-bokeh-codefile:before { content: '\e826';}             
+}
+
+//*// on right on toolbar
+body#visual-portal-wrapper.pat-plone #edit-zone {
+	[class*="contenttype-"] {padding: 5px 15px 5px 50px;}
+
+    a {color: @plone-btn-context-color;}
+	[class*="contenttype-"]:after {
+		font-family:"Fontello"; font-size: 100%;
+		padding: 0; margin:0; position: relative; left:  25px; display: inline-block; color: inherit;
+		width: 20px; height: 20px; text-align: center; margin-right: @plone-padding-base-vertical;
+		position:absolute;
+	}
+	.contenttype-folder:after {		content: '\e801';}
+	.contenttype-document:after {	content: '\e80e';}
+	.contenttype-file:after {		content: '\e811';}
+	.contenttype-link:after {		content: '\e806';}
+	.contenttype-image:after {		content: '\e810';}
+	.contenttype-collection:after {	content: '\e808';}
+	.contenttype-event:after {		content: '\e809';}
+	.contenttype-news-item:after {	content: '\e80f';}
+ .contenttype-emc-kb-folder:after { content: '\e801';}
+ .contenttype-emc-kb-kbfolder:after { content: '\e801';}
+ .contenttype-emc-kb-ormfolder:after { content: '\e801';}  
+ .contenttype-emc-project-projectfolder:after { content: '\e801';}
+ .contenttype-emc-project-project:after { content: '\e823';}
+ .contenttype-emc-project-team:after { content: '\e834';}
+ .contenttype-emc-project-doc:after { content: '\e80e';}
+ .contenttype-emc-memberarea-workspace:after { content: '\e801';}
+ .contenttype-emc-memberarea-messagebox:after { content: '\e809';}
+ .contenttype-emc-memberarea-message:after { content: '\e81c';}
+ .contenttype-emc-memberarea-inputbox:after { content: '\e809';}
+ .contenttype-emc-memberarea-outputbox:after { content: '\e809';}      
+ .contenttype-emc-memberarea-favorite:after { content: '\e825';} 
+ .contenttype-emc-memberarea-todo:after { content: '\e805';} 
+ .contenttype-emc-memberarea-myfolder:after { content: '\e825';}
+ .contenttype-emc-memberarea-todoitem:after { content: '\e809';}
+ .contenttype-emc-bokeh-fearture:after { content: '\e826';}
+ .contenttype-emc-bokeh-codefile:after { content: '\e826';}             
+}
+
+//*// thumbnails for images, leadimages  in listings and portlets
+    .image-icon, .image-tile {
+      float:right;
+}
+// to supress thumbnails in listings and/or portlets uncomment the following
+//    .image-icon {display:none;}
+//    .image-tile {display:none;}

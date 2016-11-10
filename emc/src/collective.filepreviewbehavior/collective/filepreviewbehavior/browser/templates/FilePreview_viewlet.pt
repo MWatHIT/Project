@@ -1,0 +1,6 @@
+ <div i18n:domain="plone" class="preview">
+    <h2 i18n:translate="heading_file_contents">File contents</h2>
+    <pre tal:content="structure python:view.preview" />
+ </div>   
+ 
+

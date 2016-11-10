@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="context/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
+      i18n:domain="emc.memberArea">        
+
+<head>
+      <metal:block fill-slot="top_slot">
+        <tal:insert tal:replace="nothing"
+              tal:define="dummy python:request.set('enable_border', 1);                          
+                          disable_column_two python:request.set('disable_plone.rightcolumn', 1);" />
+      </metal:block>
+  </head>
+<body>
+<metal:main fill-slot="content-core">
+    <tal:main-macro metal:define-macro="content-core">
+      <div class="row action-bar">
+       	<div class="col-md-1 col-md-offset-11" tal:define="url python:view.getMessageUrl()">
+       		<a class="btn btn-default"  type="button" tal:condition="url" href="" tal:attributes="href python:url">发信</a> 		     	 		
+       	</div>
+      </div>     
+      <div class="row">
+       	<div class="col-xs-12" tal:define="con python:context.text">
+       		<div class="body"  tal:condition="con" tal:content="structure con"></div> 		     	 		
+       	</div>
+      </div> 
+    	
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

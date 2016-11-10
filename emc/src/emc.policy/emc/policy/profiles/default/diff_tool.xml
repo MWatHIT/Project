@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object>
+  <difftypes>
+    <type portal_type="emc.project.doc">
+      <field name="any" difftype="Compound Diff for Dexterity types"/>
+    </type>
+    <type portal_type="emc.project.team">
+      <field name="any" difftype="Compound Diff for Dexterity types"/>
+    </type>
+    <type portal_type="emc.project.project">
+      <field name="any" difftype="Compound Diff for Dexterity types"/>
+    </type>
+    <type portal_type="emc.bokeh.codefile">
+      <field name="any" difftype="Compound Diff for Dexterity types"/>
+    </type>
+  </difftypes>
+</object>

@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="EMCDesigner" />
+    <role name="Designer" /> 
+    <role name="Commander" />
+    <role name="DeputyCommander" />
+    <role name="ChiefDesigner" />
+    <role name="DeputyChiefDesigner" /> 
+    <role name="ChiefQE" />
+    <role name="DeputyChiefQE" />
+    <role name="DeputyChiefProcess" />     
+    <role name="ProcessStaff" /> 
+    <role name="QualityManageStaff" />
+    <role name="DispatchStaff" /> 
+    <role name="EMCExpert" />                
+  </roles>	
+  <permissions>
+    <!-- Map the "add" permissions for the various content types. Note that
+         we let the "Contributor" role (in a folder) be allowed to add content
+         when the "Owner" is, so that we can effectively delegate control
+         over a folder. Some content types, such as project folders  are considered to be 
+         so "structural" that only administrators
+         can add them.
+      -->
+	<permission name="View" acquire="True">
+    <role name="Owner" />		
+    <role name="Contributor"/>
+    <role name="Editor"/>
+    <role name="Reader"/>
+    <role name="Reviewer"/>
+		<role name="Manager"/>
+		<role name="Member"/>		
+		<role name="Site Administrator"/>		
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>		
+    </permission>
+    
+	<permission name="Add portal content" acquire="True">
+    <role name="Owner" />		
+    <role name="Contributor"/>
+    <role name="Editor"/>
+    <role name="Reviewer"/>
+		<role name="Manager"/>
+		<role name="Member"/>		
+		<role name="Site Administrator"/>		
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>		
+    </permission>
+	<permission name="Modify portal content" acquire="True">
+    <role name="Owner" />		
+    <role name="Contributor"/>
+    <role name="Editor"/>
+    <role name="Reviewer"/>
+		<role name="Manager"/>
+		<role name="Member"/>		
+		<role name="Site Administrator"/>		
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>		
+    </permission>    
+
+	<permission name="Delete objects" acquire="True">
+    <role name="Owner" />		
+    <role name="Contributor"/>
+		<role name="Manager"/>	
+		<role name="Site Administrator"/>		
+    </permission>        
+	
+    <permission name="Access contents information" acquire="True">
+    <role name="Contributor"/>
+    <role name="Editor"/>
+    <role name="Reader"/>
+    <role name="Reviewer"/>
+		<role name="Manager"/>
+		<role name="Member"/>		
+		<role name="Site Administrator"/>		
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>			  
+    </permission>
+	<permission name="CMFEditions: Access previous versions" acquire="True">
+		<role name="Contributor"/>
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="Reviewer"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="CMFEditions: Apply version control" acquire="True">
+		<role name="Contributor"/>
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="Reviewer"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="CMFEditions: Checkout to location" acquire="True">
+		<role name="Contributor"/>
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="Reviewer"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="CMFEditions: Revert to previous versions" acquire="True">
+		<role name="Contributor"/>
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="Reviewer"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="CMFEditions: Save new version" acquire="True">
+		<role name="Contributor"/>
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="Reviewer"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="List folder contents" acquire="True">
+		<role name="Contributor"/>
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="Reviewer"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="plone.app.contenttypes: Add Document" acquire="True">
+		<role name="Contributor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="plone.app.contenttypes: Add File" acquire="True">
+		<role name="Contributor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="plone.app.contenttypes: Add Image" acquire="True">
+		<role name="Contributor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>
+		<role name="EMCDesigner"/>
+		<role name="Designer"/>				
+		<role name="Site Administrator"/>
+	</permission>			
+	<permission name="Modify view template" acquire="True">
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>			
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="View History" acquire="True">
+		<role name="Editor"/>
+		<role name="Manager"/>
+		<role name="Owner"/>			
+		<role name="Site Administrator"/>
+	</permission>
+	<permission name="emc.project:Manage project" acquire="True">
+		<role name="Owner"/>
+		<role name="Manager"/>		
+	</permission>	
+	<permission name="emc.project:Manage designer" acquire="True">
+		<role name="Owner"/>
+		<role name="Manager"/>
+		<role name="Site Administrator"/>				
+	</permission>	
+									
+	<permission name="emc.project:Add projectfolder" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>		
+	</permission>
+	
+	<permission name="emc.project:Add project" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+	</permission>
+	
+	<permission name="emc.project:Add team" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+		<role name="Contributor"/>	 
+	</permission>
+	<permission name="emc.project:Add document" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+		<role name="Contributor"/>		
+	</permission>
+	
+	<permission name="emc.project:Modify project" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    	<role name="Owner" />			
+		<role name="Editor"/>
+	</permission>	
+	<permission name="emc.project:Modify team" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    	<role name="Owner" />			
+    	<role name="Editor" />
+	</permission>	
+	<permission name="emc.project:Modify document" acquire="True">
+		<role name="Site Administrator"/>		
+		<role name="Manager"/>
+    	<role name="Owner" />			
+    	<role name="Editor" /> 
+	</permission>						
+		
+	<permission name="emc.project:View projectsummary" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    	<role name="Reader"/>	
+		
+	</permission>
+	<permission name="emc.project:View project" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    	<role name="Reader"/>		
+    	<role name="Owner" />				
+	</permission>
+	<permission name="emc.project:View team" acquire="True">
+		<role name="Site Administrator"/>
+    	<role name="Reader"/>		
+		<role name="Manager"/>
+    	<role name="Owner" />				
+	</permission>
+	<permission name="emc.project:View document" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    	<role name="Reader"/>		
+    	<role name="Owner" />		 		
+	</permission>
+  </permissions>		
+</rolemap>

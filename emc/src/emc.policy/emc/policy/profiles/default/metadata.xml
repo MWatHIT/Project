@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>1001</version>
+    <dependencies> 
+        <dependency>profile-emc.theme:default</dependency>
+        <dependency>profile-emc.bokeh:default</dependency>
+        <dependency>profile-emc.project:default</dependency>
+        <dependency>profile-emc.kb:default</dependency>                      
+    </dependencies>  
+</metadata>

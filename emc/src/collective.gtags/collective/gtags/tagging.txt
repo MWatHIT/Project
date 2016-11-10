@@ -1,0 +1,322 @@
+Tagging
+=======
+
+This package provides support for Google Code style tagging:
+
+  * A vocabulary of available tags is defined centrally, via a control panel
+  * Tags are either simple strings, or strings of the form 
+    CategoryName-TagValue
+  * Validation rules can be defined in the control panel, based on on 
+    categories: some categories may be required, i.e. the user must select
+    at least one tag in a given category; other categories may be unique,
+    i.e. the user must select at most one tag in a given category. The
+    same category can be listed as both 'unique' and 'required'.
+        
+To support this, the package provides:
+
+ * A Tags field
+ * An ITagSettings schema that describes tag settings. These are stored using
+   plone.app.registry.
+ * A control panel form for managing tag settings
+ * A TagsSource that interrogates the tag settings
+ * A z3c.form field widget for the Tags field
+
+Test setup
+----------
+
+Before we can run these tests, we need to load the collective.gtags configuration.
+This also involves loading plone.regstry.
+
+    >>> configuration = """\
+    ... <configure
+    ...      xmlns="http://namespaces.zope.org/zope"
+    ...      i18n_domain="collective.gtags">
+    ...      
+    ...     <include package="Products.Five" file="meta.zcml" />
+    ...     <include package="Products.GenericSetup" file="meta.zcml" />
+    ...     <include package="Products.Five" />
+    ...     
+    ...     <include package="collective.gtags" />
+    ...     
+    ... </configure>
+    ... """
+
+    >>> from StringIO import StringIO
+    >>> from zope.configuration import xmlconfig
+    >>> xmlconfig.xmlconfig(StringIO(configuration))
+
+Tag settings are stored in a plone.registry configuration registry. Plone
+provides one of these as a local utility. For the purposes of this test, we'll
+set up our own.
+
+    >>> from plone.registry import Registry
+    >>> from plone.registry.interfaces import IRegistry
+    >>> from zope.component import provideUtility
+    >>> registry = Registry()
+    >>> provideUtility(component=registry, provides=IRegistry)
+
+Tag settings are described by the ITagSettings interface. This is registered
+with the settings registry in a registry.xml import handler. For this test,
+we'll do so manually.
+
+    >>> from zope.component import getUtility
+    >>> from collective.gtags.interfaces import ITagSettings
+    >>> registry.registerInterface(ITagSettings)
+
+Managing settings
+-----------------
+
+To obtain the tag settings, we can ask the configuration registry.
+
+    >>> settings = getUtility(IRegistry).forInterface(ITagSettings)
+
+The settings object is now an IRecordsProxy which can be used to get and set
+values from the registry.
+
+We first need to set the list of tags.
+
+    >>> settings.tags = set([u'ToDo', u'Priority-High', u'Priority-Low', 
+    ...                      u'Department-HR', u'Department-Finance', u'Department-IT'])
+
+The 'ToDo' tag is a general tag. 'Priority-High' and 'Priority-Low' are both
+tags in the 'Priority' category. The same goes for the 'Department' tags.
+
+We can list the categories like so:
+
+    >>> from collective.gtags.utils import get_categories
+    >>> sorted(get_categories(settings.tags))
+    [u'Department', u'Priority']
+
+We can also split an individual tag if required, whether it is in the
+vocabulary or not.
+    
+    >>> from collective.gtags.utils import split
+    >>> split('MyTag-One-two')
+    (u'MyTag', u'One-two')
+
+We can configure which categories are 'unique', and which ones are
+required.
+
+    >>> settings.unique_categories = set([u'Priority'])
+    >>> settings.required_categories = set([u'Priority', u'Department'])
+
+Finally, we can decide whether we allow non-standard tags to be added
+globally. Note that even if this is set, it may be overridden on a field-by-
+field basis.
+
+    >>> settings.allow_uncommon = False
+
+Using the field
+---------------
+
+With the settings utility installed, we can now use the tags field.
+
+    >>> from zope.interface import Interface, implements
+    >>> from collective.gtags.field import Tags
+
+    >>> class ITagged(Interface):
+    ...     standard_tags = Tags(title=u"Tags")
+    ...     uncommon_tags = Tags(title=u"Tags", allow_uncommon=True)
+    ...     unvalidated_tags = Tags(title=u"Tags", validate_categories=False)
+    ...     freeform_tags = Tags(title=u"Tags", allow_uncommon=True, validate_categories=False)
+    ...     strict_tags = Tags(title=u"Tags", allow_uncommon=False)
+    ...     unrequired_tags = Tags(title=u"Not required", required=False)
+
+Here, we have several tag fields:
+
+  * standard_tags will consult the global settings to determine whether
+    uncommon tags are allowed, and will always validate required/unique
+    categories.
+  * uncommon_tags allows uncommon tags always, but will validate categories.
+  * unvalidated_tags will consult the global settings to determine whether
+    uncommon tags are allowed, but will never validate categories.
+  * freeform_tags allows uncommon tags and does not validate categories.
+  * strict_tags never allows uncommon tags and always validates catgories.
+  * unrequired_tags are like the standard tags, but will permit an empty 
+    value even if some categories are required.
+
+Under the hood, a tags field simply stores a set.
+
+    >>> class Tagged(object):
+    ...     implements(ITagged)
+    ...
+    ...     standard_tags = set()
+    ...     uncommon_tags = set()
+    ...     unvalidated_tags = set()
+    ...     freeform_tags = set()
+    ...     strict_tags = set()
+    ...     unrequired = set()
+
+The tags field supports validation against the tag settings.
+
+    >>> tagged = Tagged()
+
+    >>> standard = ITagged['standard_tags'].bind(tagged)
+    >>> uncommon = ITagged['uncommon_tags'].bind(tagged)
+    >>> unvalidated = ITagged['unvalidated_tags'].bind(tagged)
+    >>> freeform = ITagged['freeform_tags'].bind(tagged)
+    >>> strict = ITagged['strict_tags'].bind(tagged)
+    >>> unrequired = ITagged['unrequired_tags'].bind(tagged)
+
+We'll try the standard settings first to look at the various error messages.
+
+    >>> standard.validate(set([u'ToDo']))
+    Traceback (most recent call last):
+    ...
+    TagsError: You must have at least one tag in the following categories: Priority, Department
+
+    >>> standard.validate(set([u'ToDo', u'Priority-High']))
+    Traceback (most recent call last):
+    ...
+    TagsError: You must have at least one tag in the following categories: Department
+
+    >>> standard.validate(set([u'ToDo', u'Priority-High', u'Priority-Low', u'Department-HR']))
+    Traceback (most recent call last):
+    ...
+    TagsError: You may only have one tag in the following categories: Priority
+
+    >>> standard.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Department-HR', u'Department-IT']))
+    Traceback (most recent call last):
+    ...
+    TagsError: Tags not allowed: Foo
+
+    >>> standard.validate(set([u'ToDo', u'Priority-High', u'Department-HR', u'Department-IT']))
+
+If we have enabled uncommon tags, we will still validate categories by
+default:
+
+    >>> uncommon.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Priority-Low', u'Department-HR', u'Department-IT']))
+    Traceback (most recent call last):
+    ...
+    TagsError: You may only have one tag in the following categories: Priority
+
+    >>> uncommon.validate(set([u'ToDo', u'Priority-High', u'Department-bogus']))
+    Traceback (most recent call last):
+    ...
+    TagsError: You must have at least one tag in the following categories: Department
+
+    >>> uncommon.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Department-HR', u'Department-IT']))
+
+If category validation is disabled, we can still validate against uncommon
+tags:
+
+    >>> unvalidated.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Priority-Low']))
+    Traceback (most recent call last):
+    ...
+    TagsError: Tags not allowed: Foo
+
+    >>> unvalidated.validate(set([u'ToDo', u'Priority-High', u'Priority-Low']))
+
+Unless, of course, we turned that off too:
+
+    >>> freeform.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Priority-Low']))
+
+If the field is not required, an empty set is OK:
+
+    >>> unrequired.validate(set())
+
+However, as soon as we enter something, the usual rules apply:
+
+    >>> unrequired.validate(set(['ToDo', 'Priority-High']))
+    Traceback (most recent call last):
+    ...
+    TagsError: You must have at least one tag in the following categories: Department
+    
+Now, let's change the global allow_uncommon tags. The 'unvalidated' and
+'standard' fields should now allow uncommon tags, but the 'strict' field
+should still disallow it. Note that we need to re-bind the field for the
+new settings to take effect.
+
+    >>> settings.allow_uncommon = True
+
+    >>> standard = ITagged['standard_tags'].bind(tagged)
+    >>> uncommon = ITagged['uncommon_tags'].bind(tagged)
+    >>> unvalidated = ITagged['unvalidated_tags'].bind(tagged)
+    >>> freeform = ITagged['freeform_tags'].bind(tagged)
+    >>> strict = ITagged['strict_tags'].bind(tagged)
+
+    >>> standard.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Department-IT']))
+    >>> unvalidated.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Priority-Low']))
+    
+    >>> strict.validate(set([u'ToDo', u'Foo', u'Priority-High', u'Department-IT']))
+    Traceback (most recent call last):
+    ...
+    TagsError: Tags not allowed: Foo
+
+The tags source
+---------------
+
+The tags field automatically gains a source of type TagsSource, represented
+by a TagsSourceBinder.
+
+    >>> standard.value_type
+    <zope.schema._field.Choice object at ...>
+
+    >>> standard.value_type.source
+    <collective.gtags.source.TagsSource object at ...>
+    
+The source respects the ITagSettings vocabulary, including the allow_uncommon
+flag.
+
+    >>> settings.allow_uncommon = False
+    >>> standard = ITagged['standard_tags'].bind(tagged)
+    >>> uncommon = ITagged['uncommon_tags'].bind(tagged)
+    >>> strict = ITagged['strict_tags'].bind(tagged)
+
+    >>> u'ToDo' in standard.value_type.source
+    True
+    >>> u'Foo' in standard.value_type.source
+    False
+    >>> u'Foo' in uncommon.value_type.source
+    True
+    >>> u'Foo' in strict.value_type.source
+    False
+
+    >>> settings.allow_uncommon = True
+    >>> standard = ITagged['standard_tags'].bind(tagged)
+    >>> uncommon = ITagged['uncommon_tags'].bind(tagged)
+    >>> strict = ITagged['strict_tags'].bind(tagged)
+
+    >>> u'ToDo' in standard.value_type.source
+    True
+    >>> u'Foo' in standard.value_type.source
+    True
+    >>> u'Foo' in uncommon.value_type.source
+    True
+    >>> u'Foo' in strict.value_type.source
+    False
+
+We can also get terms by token or value (they are, in fact, the same, since
+tags are one-dimensional):
+
+    >>> settings.allow_uncommon = True
+    >>> standard = ITagged['standard_tags'].bind(tagged)
+    >>> uncommon = ITagged['uncommon_tags'].bind(tagged)
+
+    >>> standard.value_type.source.getTerm(u'Priority-High').token
+    'Priority-High'
+    >>> standard.value_type.source.getTerm(u'Priority-High').value
+    u'Priority-High'
+    >>> standard.value_type.source.getTerm(u'Priority-High').title is None
+    True
+
+    >>> standard.value_type.source.getTermByToken('Priority-High').token
+    'Priority-High'
+    >>> standard.value_type.source.getTermByToken('Priority-High').value
+    u'Priority-High'
+    >>> standard.value_type.source.getTermByToken('Priority-High').title is None
+    True
+
+    >>> uncommon.value_type.source.getTerm(u'Foo').token
+    'Foo'
+    >>> uncommon.value_type.source.getTerm(u'Foo').value
+    u'Foo'
+    >>> uncommon.value_type.source.getTerm(u'Foo').title is None
+    True
+
+    >>> uncommon.value_type.source.getTermByToken('Foo').token
+    'Foo'
+    >>> uncommon.value_type.source.getTermByToken('Foo').value
+    u'Foo'
+    >>> uncommon.value_type.source.getTermByToken('Foo').title is None
+    True

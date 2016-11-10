@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="context/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
+      i18n:domain="emc.memberArea">        
+
+<body>	
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+    <div id="workspace" class="container-fluid"
+    			tal:define="p python:context.absolute_url()">      	
+       <div class="row row-1">
+         
+         <div class="col-xs-12 col-md-12 tabPortlet">
+				<div role="tabpanel" class="row">
+  				<!-- Nav tabs -->
+  				<ul class="nav nav-tabs row" role="tablist">
+  					<!-- 
+    				<li role="presentation" class="col-xs-3">
+    					<a class="text-center" href="#message" aria-controls="message" role="tab" data-toggle="tab"
+    						tal:attributes="data-js-target python:p + '/messagebox/@@view'">我的邮件</a>
+    				</li>
+    				-->
+    				<li role="presentation" class="active col-xs-4">
+    					<a class="text-center" href="#todoitems" aria-controls="todoitems" role="tab" data-toggle="tab"
+    						tal:attributes="data-js-target python:p + '/todo/@@view'">待办事宜</a>
+    				</li>
+    				<li role="presentation" class="col-xs-4">
+    					<a class="text-center" href="#myfolder" aria-controls="myfolder" role="tab" data-toggle="tab"
+    						tal:attributes="data-js-target python:p + '/myfolder/@@folder_contents'">我的网盘</a>
+    				</li>
+    				<li role="presentation" class="col-xs-4">
+    					<a class="text-center" href="#favorite" aria-controls="favorite" role="tab" data-toggle="tab"
+    						tal:attributes="data-js-target python:p + '/favorite/@@view'">我的收藏</a>
+    				</li>    				
+    				</ul>
+  					<!-- Tab panes start-->
+  				<div class="tab-content">
+  				<!--	 
+   				<div role="tabpanel" class="tab-pane" id="message">
+         		<ul class="tabcontent-lists" tal:define="inbox python:view.getGrandson('messagebox','inputbox')">
+        			<table class="table table-striped table-bordered table-condensed listing col-md-12">
+       				<thead>
+       					<tr class="row" data-toggle="tooltip" title="点击排序">
+            				<th class="col-md-4" i18n:translate="">name</th>
+            				<th class="col-md-2" i18n:translate="">sender</th>
+            				<th class="col-md-2" i18n:translate="">date</th>
+            				<th class="col-md-2" i18n:translate="">status</th>
+            				<th class="col-md-2" i18n:translate="">operates</th>              
+       	  				</tr>
+       				</thead>
+       				<div tal:omit-tag="" tal:define="itemlists python:view.geTable(inbox,'view')">
+       				<tbody id="tablecontent" tal:condition="itemlists" tal:content="structure python:itemlists">
+       	  			</tbody>
+           			</div>
+          			</table>       			    				
+    			</ul>    	
+    			</div>
+    			-->
+    			<div role="tabpanel" class="tab-pane active" id="todoitems">
+          		<ul class="tabcontent-lists" tal:define="todo python:view.getChild('todo')">
+        			<table class="table table-striped table-bordered table-condensed listing col-md-12">
+       				<thead>
+       				<tr class="row" data-toggle="tooltip" title="点击排序">
+            		<th class="col-md-6" i18n:translate="">name</th>
+            		<th class="col-md-2 text-center" i18n:translate="">date</th>
+            		<th class="col-md-2 text-center">状态切换</th>
+            		<th class="col-md-2 text-center" i18n:translate="">operates</th>              
+       	  			</tr>
+       				</thead>
+       				<div tal:omit-tag="" tal:define="itemlists python:view.geTable(todo,'view')">
+       				<tbody id="tablecontent" tal:condition="itemlists" tal:content="structure python:itemlists">
+       	  			</tbody>
+           			</div>
+          			</table>       			    				
+    			</ul>
+    			</div>    	
+				<div role="tabpanel" class="tab-pane" id="myfolder">
+         		<ul class="tabcontent-lists" tal:define="myfolder python:view.getChild('myfolder')">
+        			<table class="table table-striped table-bordered table-condensed listing col-md-12">
+       				<thead>
+       					<tr class="row" data-toggle="tooltip" title="点击排序">
+            				<th class="col-md-8" i18n:translate="">name</th>
+            				<th class="col-md-2 text-center" i18n:translate="">date</th>
+            				<th class="col-md-2 text-center" i18n:translate="">operates</th>              
+       	  				</tr>
+       				</thead>
+       				<div tal:omit-tag="" tal:define="itemlists python:view.geTable(myfolder,'view')">
+       				<tbody id="myfoldercontent" tal:condition="itemlists" tal:content="structure python:itemlists">
+       	  			</tbody>
+           			</div>
+          			</table>       			    				
+    			</ul>    	
+    			</div>
+   				<div role="tabpanel" class="tab-pane" id="favorite"> 
+          		<ul class="tabcontent-lists" tal:define="favorite python:view.getChild('favorite')">
+        			<table class="table table-striped table-bordered table-condensed listing col-md-12">
+       				<thead>
+       					<tr class="row" data-toggle="tooltip" title="点击排序">
+            				<th class="col-md-8" i18n:translate="">name</th>
+            				<th class="col-md-2 text-center" i18n:translate="">date</th>
+            				<th class="col-md-2 text-center" i18n:translate="">operates</th>              
+       	  				</tr>
+       				</thead>
+       				<div tal:omit-tag="" tal:define="itemlists python:view.geTable(favorite,'view');
+       				target python:favorite.absolute_url()">
+       				<tbody id="favcontent" 
+       					tal:condition="itemlists"
+       					tal:attributes="data-ajax-target python:target + '/@@ajax'" 
+       					tal:content="structure python:itemlists">
+       	  			</tbody>
+           			</div>
+          			</table>       			    				
+    			</ul>
+    			</div>    			
+    			
+    			</div>    				   			
+  			</div> <!--Tab panes end -->
+			</div><!-- tabPortlet end-->
+			</div> <!--end of row1 --> 
+
+						    
+      </div>  <!-- end of container -->                                     		
+    </tal:main-macro>
+</metal:main>
+<metal:js fill-slot="javascript_bottom_slot">
+<script type="text/javascript">
+$(document).ready(function(){
+$('#tablecontent').on('click','.unfavorite', function(){
+		  //var uid = $(this).attr('rel');
+		  var action = $(this).attr('data-ajax-target') + '/undofavorite';
+			var states = {'uid': uid};
+			$(this).addClass('going');			
+			$.post(action,function(){
+				$('.going').parent().remove();
+				return false;
+				}
+			);		
+	});	
+	})
+</script>		
+</metal:js>  
+</body>
+</html>

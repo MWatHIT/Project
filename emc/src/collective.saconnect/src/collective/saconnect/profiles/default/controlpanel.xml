@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object
+    i18n:domain="plone"
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <configlet
+      action_id="collective.saconnect.sqlconnections"
+      appId="collective.saconnect"
+      category="Products"
+      condition_expr=""
+      i18n:attributes="title"
+      icon_expr="string:${portal_url}/++resource++saconnect-icon.png"
+      title="SQLAlchemy Connections"
+      url_expr="string:${portal_url}/@@saconnect-controlpanel"
+      visible="True">
+    <permission>Manager portal</permission>
+  </configlet>
+</object>

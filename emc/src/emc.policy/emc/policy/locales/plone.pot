@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xtshzz.policy\n"
+"POT-Creation-Date: 2016-01-08 09:15+0000\n"
+"PO-Revision-Date: 2015-02-14 09:20+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: 315ok.org <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh_CN\n"
+"Language-Name: Chinese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+#: ./profiles/default/registry.xml
+msgid "Custom plugins"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "Displayed content types"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "Enter a list of custom plugins which will be loaded in the editor. Format is pluginname|location, one per line."
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "My storage"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "Number of folder levels to show in the site map."
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "Sitemap depth"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "The content types that should be shown in the navigation and site map."
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "Workspace"
+msgstr ""
+
+#. Default: "Navigation"
+#: ./browser/templates/dropdown_sections.pt:9
+msgid "heading_sections"
+msgstr ""
+
+#. Default: "How many levels to list after the top level."
+#: ./browser/interfaces.py:15
+msgid "help_dropdown_depth"
+msgstr ""
+
+#. Default: "WARNING! This is an experimental feature. This is using RAM to store cached template for dropdown menus. Technically every user and every visited section gets its own instance in the ram.cache. Don't enable this if you don't know what this is about. Disable this option if you get unexpected behavior of your global tabs."
+#: ./browser/interfaces.py:22
+msgid "help_enable_caching"
+msgstr ""
+
+#. Default: "With this option enabled, every menu item is clickable. With this option disabled, an item is only clickable when it is not a parent so it has no children."
+#: ./browser/interfaces.py:37
+msgid "help_enable_parent_clickable"
+msgstr ""
+
+#. Default: "Enter the list of templates in json format\n        http://www.tinymce.com/wiki.php/Plugin:template"
+#: ./profiles/default/registry.xml
+msgid "help_tinymce_templates"
+msgstr ""
+
+#. Default: "Depth of dropdown menus"
+#: ./browser/interfaces.py:14
+msgid "label_dropdown_depth"
+msgstr ""
+
+#. Default: "Enable caching"
+#: ./browser/interfaces.py:21
+msgid "label_enable_caching"
+msgstr ""
+
+#. Default: "Enable clicking menu items that have children"
+#: ./browser/interfaces.py:35
+msgid "label_enable_parent_clickable"
+msgstr ""
+
+#. Default: "Templates"
+#: ./profiles/default/registry.xml
+msgid "label_tinymce_templates"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "personal net storage"
+msgstr ""
+
+#: ./profiles/default/actions.xml
+msgid "personal workspace"
+msgstr ""
+
+#. Default: "Copyright"
+#: ./browser/templates/footer.pt:14
+msgid "title_copyright"
+msgstr ""
+

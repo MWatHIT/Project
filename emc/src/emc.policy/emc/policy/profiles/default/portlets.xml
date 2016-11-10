@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<portlets
+	xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+	i18n:domain="plone">
+
+	 <portlet 
+       addview="emc.portlets.Navigation"
+       title="emc navigatin portlet"
+       description="emc navigatin portlet"
+	   i18n:attributes="title;description"
+       /> 	
+ <assignment name="actions" category="context" key="/"
+    manager="plone.footerportlets" type="portlets.Actions" visible="False">
+  <property name="category">site_actions</property>
+  <property name="show_title">False</property>
+  <property name="ptitle">site_actions</property>
+  <property name="default_icon">action_icon.png</property>
+  <property name="show_icons">False</property>
+ </assignment>
+ <assignment name="colophon" category="context" key="/"
+    manager="plone.footerportlets" type="portlets.Classic" visible="False">
+  <property name="macro"></property>
+  <property name="template">colophon</property>
+ </assignment>
+ 
+</portlets>

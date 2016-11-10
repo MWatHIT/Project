@@ -1,0 +1,66 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:monkey="http://namespaces.plone.org/monkey">
+
+
+
+  <utility
+      name="zh"
+      provides="plone.i18n.normalizer.interfaces.IFileNameNormalizer"
+      component=".zh.normalizer"
+      permission="zope.Public" />
+
+  <utility
+      name="zh"
+      provides="plone.i18n.normalizer.interfaces.IURLNormalizer"
+      component=".zh.normalizer"
+      permission="zope.Public" />
+      
+  <include package="collective.monkeypatcher" />
+    <monkey:patch
+     description="patch i18njs view for zh"
+     class ="plone.app.content.browser.i18n.i18njs"
+     original="__call__"
+     replacement=".i18n.__call__"
+  /> 
+    <monkey:patch
+     description="patch file field class for file download"
+     class ="plone.app.blob.field.BlobWrapper"
+     original="index_html"
+     replacement=".filedownload.index_html"
+  />
+
+    <monkey:patch
+     description="widget class for report field"
+     class ="plone.app.z3cform.widget.RichTextWidget"
+     original="_base_args"
+     replacement=".widget._base_args"
+  />
+    <monkey:patch
+     description="patch Products ExternalEditor for file external edit"
+     class ="Products.ExternalEditor.ExternalEditor.ExternalEditor"
+     original="index_html"
+     replacement=".ExternalEditor.index_html"
+  />  
+    <monkey:patch
+     description="patch dexterity filepresentation for file external edit"
+     class ="plone.dexterity.filerepresentation.DefaultReadFile"
+     original="_getStream"
+     replacement=".filerepresentation._getStream"
+  />
+
+    <monkey:patch
+     description="patch dexterity filepresentation for file external edit"
+     class ="plone.dexterity.filerepresentation.DefaultReadFile"
+     original="_getMessage"
+     replacement=".filerepresentation._getMessage"
+  />
+
+    <monkey:patch
+     description="patch plone rfc822 _utils for file external edit"
+     module ="plone.rfc822._utils"
+     original="constructMessage"
+     replacement="._utils.constructMessage"
+  /> 
+  
+</configure>

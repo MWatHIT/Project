@@ -1,0 +1,85 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="emc.project">
+
+    <!-- Define new permissions -->
+	<permission
+        id="emc.project.manage_project"
+		title="emc.project:Manage project"
+        />
+	<permission
+        id="emc.project.manage_designer"
+		title="emc.project:Manage designer"
+        />        
+
+	<permission
+        id="emc.project.add_projectfolder"
+		title="emc.project:Add projectfolder"
+        />	
+
+	<permission
+       id="emc.project.add_project"
+		title="emc.project:Add project"
+        />
+
+	<permission
+       id="emc.project.add_team"
+		title="emc.project:Add team"
+        />
+	<permission
+       id="emc.project.add_audit_doc"
+		title="emc.project:Add audit document"
+        />
+	<permission
+       id="emc.project.add_doc"
+		title="emc.project:Add document"
+        />                 
+	<permission
+       id="emc.project.add_design_doc"
+		title="emc.project:Add design document"
+        />
+	<permission
+       id="emc.project.add_diagnose_doc"
+		title="emc.project:Add diagnose document"
+        />
+	<permission
+       id="emc.project.add_analysis_doc"
+		title="emc.project:Add analysis document"
+        /> 
+                          		
+	<permission
+       id="emc.project.modify_project"
+		title="emc.project:Modify project"
+        />
+		
+	<permission
+       id="emc.project.modify_team"
+		title="emc.project:Modify team"
+        />
+        
+	<permission
+       id="emc.project.modify_doc"
+		title="emc.project:Modify document"
+        />        
+		
+	<permission
+       id="emc.project.view_projectsummary"
+		title="emc.project:View projectsummary"
+        />	
+		
+	<permission
+       id="emc.project.view_project"
+		title="emc.project:View project"
+        />
+	
+	<permission
+       id="emc.project.view_team"
+		title="emc.project:View team"
+        />
+	<permission
+       id="emc.project.view_doc"
+		title="emc.project:View document"
+        />		
+	
+</configure>

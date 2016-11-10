@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <action-provider name="portal_workflow"/>
+ <action-provider name="portal_types"/>
+ <action-provider name="portal_actions"/>
+
+ <object name="portal_tabs" meta_type="CMF Action Category">
+  <property name="title"></property>
+  <object name="workspace" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">Workspace</property>
+   <property name="description" i18n:translate="">personal workspace</property>
+   <property
+      name="url_expr">python:portal.portal_membership.getHomeFolder().absolute_url() + "/workspace/"</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None and member.id != 'admin'</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>  
+ </object>
+ <object name="user" meta_type="CMF Action Category">
+  <property name="title"></property>
+  <object name="mystuff" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">My Folder</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:${portal/portal_membership/getHomeUrl}</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property
+      name="available_expr">python:(member is not None) and (portal.portal_membership.getHomeFolder() is not None)</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">False</property>
+  </object>
+  <property name="title"></property>
+  <object name="mystorage" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">My storage</property>
+   <property name="description" i18n:translate="">personal net storage</property>
+   <property
+      name="url_expr">python:portal.portal_membership.getHomeFolder().absolute_url() + "/workspace/myfolder/folder_contents"</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property
+      name="available_expr">python:(member is not None) and (portal.portal_membership.getHomeFolder() is not None) </property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>  
+ </object>
+</object>

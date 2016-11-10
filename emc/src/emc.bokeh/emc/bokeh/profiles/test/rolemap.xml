@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="emc.bokeh:View glyphs" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    <role name="Owner" />			
+    <role name="EMCDesigner" />
+    <role name="Designer" /> 
+    <role name="Commander" />
+    <role name="DeputyCommander" />
+    <role name="ChiefDesigner" />
+    <role name="DeputyChiefDesigner" /> 
+    <role name="ChiefQE" />
+    <role name="DeputyChiefQE" />
+    <role name="DeputyChiefProcess" /> 
+    </permission>
+    <permission name="emc.bokeh:Add glyphs" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    <role name="Owner" />			
+    <role name="EMCDesigner" />
+    <role name="Designer" /> 
+    </permission>
+    <permission name="emc.bokeh:Modify glyphs" acquire="True">
+		<role name="Site Administrator"/>
+		<role name="Manager"/>
+    <role name="Owner" />			
+    <role name="EMCDesigner" />
+    <role name="Designer" />
+    </permission>   
+  </permissions>
+</rolemap>

@@ -1,0 +1,90 @@
+Behaviors
+=========
+
+This package provides a behavior called `collective.gtags.behaviors.ITags`.
+This adds a `Tags` field called `tags` to the "Categorization" fieldset, with
+a behavior adapter that stores the chosen tags in the Subject metadata field.
+
+To learn more about the `Tags` field and how it works, see `tagging.txt`.
+
+Test setup
+----------
+
+Before we can run these tests, we need to load the collective.gtags
+configuration. This will configure the behavior.
+
+    >>> configuration = """\
+    ... <configure
+    ...      xmlns="http://namespaces.zope.org/zope"
+    ...      i18n_domain="collective.filepreviewbehavior">
+    ...      
+    ...     <include package="Products.Five" file="meta.zcml" />
+    ...     <include package="five.grok"  />    
+    ...     <include package="plone.behavior" />    
+    ...     <include package="plone.behavior" file="meta.zcml" />
+    ...     <include package="collective.filepreviewbehavior" />
+    ...     
+    ... </configure>
+    ... """
+
+    >>> from StringIO import StringIO
+    >>> from zope.configuration import xmlconfig
+    >>> xmlconfig.xmlconfig(StringIO(configuration))
+
+This behavior can be enabled for any `IDublinCore`. For the purposes of
+testing, we will use the CMFCore Document type and a custom
+IBehaviorAssignable adapter to mark the behavior as enabled.
+
+    >>> from plone.app.contenttypes.content import File
+    >>> from plone.app.contenttypes.interfaces import IFile
+
+    >>> from plone.behavior.interfaces import IBehaviorAssignable
+    >>> from collective.filepreviewbehavior.interfaces import IPreviewAware,IPreviewable
+    >>> from zope.component import adapts
+    >>> from zope.interface import implements
+    >>> class TestingAssignable(object):
+    ...     implements(IBehaviorAssignable)
+    ...     adapts(IFile)
+    ...     
+    ...     enabled = [IPreviewable]
+    ...     
+    ...     def __init__(self, context):
+    ...         self.context = context
+    ...     
+    ...     def supports(self, behavior_interface):
+    ...         return behavior_interface in self.enabled
+    ...     
+    ...     def enumerate_behaviors(self):
+    ...         for e in self.enabled:
+    ...             yield queryUtility(IBehavior, name=e.__identifier__)
+
+    >>> from zope.component import provideAdapter
+    >>> provideAdapter(TestingAssignable)
+
+Behavior installation
+---------------------
+
+We can now test that the behavior is installed when the ZCML for this package
+is loaded.
+
+    >>> from zope.component import getUtility
+    >>> from plone.behavior.interfaces import IBehavior
+    >>> tags_behavior = getUtility(IBehavior, name='collective.filepreviewbehavior.interfaces.IPreviewable')
+    >>> tags_behavior.interface
+    <InterfaceClass collective.filepreviewbehavior.interfaces.IPreviewable>
+
+
+
+Using the behavior
+------------------
+
+Let's create a content object that has this behavior enabled and check that
+it works.
+
+    >>> doc = File('doc')
+    >>> tags_adapter = IPreviewable(doc, None)
+    >>> tags_adapter is not None
+    True
+
+We'll check that the `tags` set is built from the `Subject()` field:
+

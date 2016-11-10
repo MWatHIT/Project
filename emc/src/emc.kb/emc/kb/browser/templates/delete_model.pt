@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="emc.kb">
+<body>
+    
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        
+        <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
+              <p class="text-warning" i18n:translate="description_delete_model_record">
+                  Warning! This operation will remove database record. 
+              </p>
+              <div class="text-warning">the following recorder will be delete.</div>
+              <span class="label">型号名称：</span><span class="badge" tal:content="python:view.model.xhmc">78</span>
+              <span class="label">型号代码：</span><span class="badge" tal:content="python:view.model.xhdm">78</span>
+                         
+        <div id="content-core">     
+              
+
+              
+              <div class="divider"><!-- --></div>
+           
+              <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+        </div>
+
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

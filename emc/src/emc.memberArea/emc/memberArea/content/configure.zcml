@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="emc.memberArea">
+
+  <!-- configure your content components here -->
+
+  <!-- -*- extra stuff goes here -*- -->
+    <!-- Register the z3c.form validator -->
+    <adapter factory=".validators.FileSizeValidator" />
+</configure>
+

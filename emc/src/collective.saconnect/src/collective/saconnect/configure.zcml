@@ -1,0 +1,37 @@
+<configure
+    i18n_domain="collective.saconnect"
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+  <include package="plone.app.z3cform" />
+  <include package=".browser" />
+  <adapter factory=".storage.SQLAlchemyConnectionStrings" />
+  <genericsetup:registerProfile
+      description="SQLAlchemy connections control panel"
+      directory="profiles/default"
+      name="default"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      title="collective.saconnect"
+  />
+  <!-- import/export support -->
+  <adapter factory=".genericsetup.SQLAlchemyConnectionStringsXMLAdapter" />
+  <genericsetup:importStep
+      description=""
+      handler=".genericsetup.importConnections"
+      name="collective.saconnect"
+      title="Import SQLAlchemy connection strings"
+  />
+  <genericsetup:exportStep
+      description=""
+      handler=".genericsetup.exportConnections"
+      name="collective.saconnect"
+      title="Export SQLAlchemy connection strings"
+  />
+  <!-- optional z3c.saconfig utilities -->
+  <subscriber
+      for="collective.saconnect.interfaces.ISQLAlchemyConnectionStrings
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".saconfig.syncUtility"
+      zcml:condition="installed z3c.saconfig"
+  />
+</configure>

@@ -1,0 +1,142 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2016-01-29 14:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: eisoo.topic\n"
+
+msgid "All"
+msgstr ""
+
+#: ./browser/ajax_listing.py:248
+msgid "Cancel"
+msgstr ""
+
+#: ./browser/ajax_listing.py:226
+msgid "Delete"
+msgstr ""
+
+#: ./browser/ajax_listing.py:252
+msgid "Delete cancelled."
+msgstr ""
+
+#: ./browser/ajax_listing.py:312
+msgid "Input cancelled."
+msgstr ""
+
+#: ./browser/ajax_listing.py:267
+msgid "Input model data"
+msgstr ""
+
+#: ./mapping_db.py:53
+msgid "Model record"
+msgstr ""
+
+#: ./browser/ajax_listing.py:286
+msgid "Submit"
+msgstr ""
+
+#: ./browser/ajax_listing.py:304
+msgid "Thank you! Your data  will be update in back end DB."
+msgstr ""
+
+#: ./browser/ajax_listing.py:244
+msgid "Your data  has been deleted."
+msgstr ""
+
+msgid "a_mounth_ago_date"
+msgstr ""
+
+msgid "a_week_ago_date"
+msgstr ""
+
+#. Default: ${year}年${month}月${day}日
+msgid "ago_date"
+msgstr ""
+
+msgid "all_day"
+msgstr ""
+
+#: ./mapping_db.py:69
+msgid "branch category"
+msgstr ""
+
+#: ./mapping_db.py:61
+msgid "branch code"
+msgstr ""
+
+#: ./mapping_db.py:65
+msgid "branch name"
+msgstr ""
+
+#: ./mapping_db.py:57
+msgid "branch table foreign key"
+msgstr ""
+
+#: ./mapping_db.py:50
+msgid "branch table primary key"
+msgstr ""
+
+#: ./profiles/default/types/emc.kb.ormfolder.xml
+msgid "db map folder"
+msgstr ""
+
+#: ./browser/ajax_listing.py:201
+msgid "delete model data"
+msgstr ""
+
+#. Default: "Warning! This operation will remove database record."
+#: ./browser/templates/delete_model.pt:14
+msgid "description_delete_model_record"
+msgstr ""
+
+#. Default: "Please enter model recorder."
+#: ./browser/templates/input_model.pt:19
+msgid "description_input_model_record"
+msgstr ""
+
+#. Default: "Please update model recorder."
+#: ./browser/templates/update_model.pt:18
+msgid "description_update_model_record"
+msgstr ""
+
+#: ./profiles/default/types/emc.kb.folder.xml
+msgid "knowledge base root folder"
+msgstr ""
+
+#: ./profiles/default/types/emc.kb.folder.xml
+msgid "knowledge folder"
+msgstr ""
+
+#: ./mapping_db.py:20
+msgid "model code"
+msgstr ""
+
+#: ./mapping_db.py:24
+msgid "model name"
+msgstr ""
+
+#: ./mapping_db.py:16
+msgid "model table primary key"
+msgstr ""
+
+#: ./profiles/default/types/emc.kb.kbfolder.xml
+msgid "resource folder"
+msgstr ""
+
+#: ./browser/ajax_listing.py:325
+msgid "update model data"
+msgstr ""
+

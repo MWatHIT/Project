@@ -1,0 +1,45 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.filepreviewbehavior">
+
+		  
+
+  
+  <browser:viewlet
+     name="filepreview"
+     for="collective.filepreviewbehavior.interfaces.IPreviewAware"
+     view="plone.app.layout.globals.interfaces.IViewView"
+     manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+     class=".viewlets.FilePreview"
+     template="templates/FilePreview_viewlet.pt"
+     permission="zope2.View"
+     />
+<!-- 
+    <browser:pages
+        for="plone.app.contenttypes.interfaces.IFile"
+        class=".views.PreviewProvider"
+        permission="zope2.View">
+        
+    <browser:page
+        name="preview_provider"
+        template="views_templates/fullview.pt"
+        menu="plone_displayviews"
+        title="File full view"
+        />          
+    <browser:page
+        name="file_asdoc"
+        template="views_templates/file_asdoc.pt"
+        menu="plone_displayviews"
+        title="File as doc view"
+        /> 
+     <browser:page
+        name="file_preview"
+        template="views_templates/file_preview.pt"
+        menu="plone_displayviews"
+        title="File preview"
+        />                          
+  </browser:pages>
+  -->
+
+</configure>

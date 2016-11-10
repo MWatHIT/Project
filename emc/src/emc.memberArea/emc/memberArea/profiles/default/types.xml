@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- This file registers new types with portal_types. The types are
+     then configured with the corresponding files in types/*.xml. Note
+     that spaces are allowed in type names, but the corresponding XML file
+     uses an underscore instead. The "Factory-based Type Information with
+     dynamic views" refers to an FTI from Products.CMFDynamicViewFTI,
+     which supports Plone's "display" menu.
+  -->
+<object name="portal_types" meta_type="Plone Types Tool">
+  <object name="emc.memberArea.workspace" meta_type="Dexterity FTI" />	
+  <object name="emc.memberArea.message" meta_type="Dexterity FTI" />	
+  <object name="emc.memberArea.messagebox" meta_type="Dexterity FTI" />	 
+  <object name="emc.memberArea.inputbox" meta_type="Dexterity FTI" />	
+  <object name="emc.memberArea.outputbox" meta_type="Dexterity FTI" />
+  <object name="emc.memberArea.myfolder" meta_type="Dexterity FTI" /> 
+  <object name="emc.memberArea.todo" meta_type="Dexterity FTI" />
+  <object name="emc.memberArea.todoitem" meta_type="Dexterity FTI" />
+  <object name="emc.memberArea.favorite" meta_type="Dexterity FTI" />      	    
+</object>

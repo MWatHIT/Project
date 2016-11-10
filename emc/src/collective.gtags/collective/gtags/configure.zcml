@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"    
+    i18n_domain="collective.gtags">
+
+    <include package="plone.app.registry" />
+    <include package=".browser" />
+
+    
+    <include file="behaviors.zcml" />
+  	<utility
+    component=".source.KeywordsVocabularyFactory"
+    name="collective.gtags.Keywords"
+    />    
+
+    <!-- Register installation profile -->
+    <gs:registerProfile
+        name="default"
+        title="Tagging"
+        description="Supports Google Code style tagging"
+        directory="profiles/default"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+<i18n:registerTranslations directory="locales" />
+</configure>

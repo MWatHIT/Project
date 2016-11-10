@@ -1,0 +1,140 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:plone="http://namespaces.plone.org/plone"    
+    i18n_domain="plone">
+
+ 	<browser:resourceDirectory
+  name="emc.policy"
+  directory="static" />
+
+   <!-- Overview Control Panel Overview -->
+  <browser:page
+      name="overview-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      layer="emc.theme.interfaces.IThemeSpecific"      
+      class=".overview.OverviewControlPanel"
+      permission="plone.app.controlpanel.Overview"
+      />
+ 
+   <browser:page
+      name="file_review"
+      for="plone.app.contenttypes.interfaces.IFile"
+      class=".file.FileView"
+      template="templates/file.pt"
+      layer="emc.theme.interfaces.IThemeSpecific" 
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="File review"
+      />  
+   
+   <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="index.html"
+      template="templates/ajax_listings_homepage.pt"
+      class=".homepage.FrontpageView"
+ 	  layer="emc.theme.interfaces.IThemeSpecific"       
+      permission="zope.Public"
+      />
+      
+   <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="ajax_db_search"
+      class=".homepage.search"
+ 	  layer="emc.theme.interfaces.IThemeSpecific"       
+      permission="zope.Public"
+      />      
+  
+   <browser:page
+      for="*"
+      name="member_url"
+      class=".member_view.WorkspaceUrlView"
+ 	  layer="emc.theme.interfaces.IThemeSpecific"       
+      permission="zope.Public"
+      />
+<!-- manage tools-->      
+   <browser:page
+      for="*"
+      name="set_layout"
+      class=".manage_tools.Setlayout"
+ 	  layer="emc.theme.interfaces.IThemeSpecific"       
+      permission="cmf.ManagePortal"
+      />
+   <browser:page
+      for="*"
+      name="mark_interface"
+      class=".manage_tools.addMarkInterface"
+ 	  layer="emc.theme.interfaces.IThemeSpecific"       
+      permission="cmf.ManagePortal"
+      />      
+            
+  <browser:page
+    for="Products.CMFCore.interfaces._content.IFolderish"
+    class="plone.app.content.browser.contents.FolderContentsView"
+    name="folder_contents"
+ 	layer="emc.theme.interfaces.IThemeSpecific"     
+    template="templates/folder_contents.pt"
+    permission="cmf.ListFolderContents"
+    menu="plone_displayviews"
+    title="Folder view"
+    />
+
+  <browser:page
+      for="*"
+      name="main_template"
+      class=".main_template.MainTemplate"
+      layer="emc.theme.interfaces.IThemeSpecific"       
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="footer"
+      permission="zope.Public"
+ 	  layer="emc.theme.interfaces.IThemeSpecific"       
+      template="templates/footer.pt"
+      />      
+    <!-- The search box -->
+    <browser:viewlet
+        name="plone.searchbox"
+        layer="emc.theme.interfaces.IThemeSpecific"        
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".common.SearchBoxViewlet"
+        permission="zope2.View"
+        />    
+    
+    <!-- The logo -->
+    <browser:viewlet
+        name="plone.logo"
+ 		layer="emc.theme.interfaces.IThemeSpecific"        
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".common.LogoViewlet"
+        permission="zope2.View"
+        />
+        
+    <!-- override The breadcrumbs -->
+    <browser:viewlet
+        name="plone.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        class=".common.PathBarViewlet"
+        layer="emc.theme.interfaces.IThemeSpecific"
+        permission="zope2.View"
+        />        
+    <!-- Override global sections viewlet -->
+
+    <browser:viewlet
+        name="plone.global_sections"
+        manager="plone.app.layout.viewlets.interfaces.IMainNavigation"
+        class=".dropdown.DropdownMenuViewlet"
+ 		layer="emc.theme.interfaces.IThemeSpecific" 
+        permission="zope2.View"
+        />
+
+ <include package="z3c.jbot" file="meta.zcml" />
+
+<browser:jbot
+    directory="override"
+    layer="emc.theme.interfaces.IThemeSpecific"  />
+<include zcml:condition="installed plone.scale" file="scaling.zcml" />            
+</configure>

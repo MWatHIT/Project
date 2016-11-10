@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<object meta_type="PlonePAS MemberData Tool" name="portal_memberdata">
+<property name="ext_editor" type="boolean">True</property>
+</object>	

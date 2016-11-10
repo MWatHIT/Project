@@ -1,0 +1,7 @@
+<?xml version="1.1"?>
+<metadata>
+  <version>1000</version>
+    <dependencies>
+        <dependency>profile-emc.memberArea:default</dependency>                             
+    </dependencies>  
+</metadata>

@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone">
+    
+	<include package="plone.behavior" file="meta.zcml" />
+  <plone:behavior
+      title="Favoriting"
+      description="Allow favorite an item"
+      provides="emc.memberArea.interfaces.IFavoriting"
+      factory=".favorite.Favorite"
+      marker="emc.memberArea.interfaces.IFavoritable"
+      />
+
+</configure>

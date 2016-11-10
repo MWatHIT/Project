@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<site>
+ <property name="title">EMC</property>
+ <property name="description">电子兼容技术支持网络子系统</property>
+ <property name="email_from_address" type="string">tonglian777@126.com</property>
+ <property name="email_from_name" type="string">tonglian777</property>
+ <property name="validate_email" type="boolean">True</property>
+ <property name="email_charset" type="string">utf-8</property>
+ <property name="enable_permalink" type="boolean">False</property>
+
+</site>

@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: emc bokeh\n"
+"POT-Creation-Date: 2016-01-04 12:23+0000\n"
+"PO-Revision-Date: 2016-01-01 21:06+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: LANGUAGE <yuejun.tang@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh_CN\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: my315ok.socialorgnization\n"
+"X-Poedit-Language: Chinese\n"
+
+#: ./interfaces.py:97
+msgid "${category} is not a valid category"
+msgstr "${category}不是一个有效的分类"
+
+#: ./interfaces.py:26
+msgid "Allow uncommon tags"
+msgstr "允许录入不常用的标签"
+
+#: ./interfaces.py:42
+#: ./profiles/default/registry.xml
+msgid "Allow uncommon tags globally"
+msgstr "允许录入不常用的标签"
+
+#: ./behaviors.py:31
+msgid "Applicable tags"
+msgstr "可应用的标签"
+
+#: ./behaviors.py:25
+msgid "Categorization"
+msgstr "分类"
+
+#: ./interfaces.py:68
+#: ./profiles/default/registry.xml
+msgid "Category"
+msgstr "分类"
+
+#: ./interfaces.py:43
+#: ./profiles/default/registry.xml
+msgid "If enabled, it will be possible to add tags other than those in the list below to content objects that support this. If disabled, all tags must be in the pre-defined list."
+msgstr "如果禁用，所有标签必须是来自预定义列表。"
+
+#: ./interfaces.py:27
+msgid "If enabled, it will be possible to add tags other than those in the pre-defined tags list"
+msgstr "如果启用，可以添加不在预定义列表里的标签。"
+
+#: ./interfaces.py:73
+#: ./profiles/default/registry.xml
+msgid "If you want to ensure that users pick at least one tag in a given category, list the category name here."
+msgstr "如果你想确保用户在一个给定的分类中提取至少一个标签，在这里列出该分类的名称。"
+
+#: ./interfaces.py:63
+#: ./profiles/default/registry.xml
+msgid "If you want to ensure that users pick at most one tag in a given category, list the category name here."
+msgstr "如果你想确保用户在指定的分类下，最多只能设置一个标签，请在这里列出分类名。"
+
+#: ./field.py:18
+msgid "Invalid tags"
+msgstr "无效的标签"
+
+#: ./interfaces.py:53
+#: ./profiles/default/registry.xml
+msgid "List pre-defined tags here. Tags can either be simple strings or categorised using the form Category-TagName."
+msgstr "在这里列出预定义的标签。标签格式是：或者一个简单字符串或者是类别-字符串名。每行一个。"
+
+#: ./browser/controlpanel.py:16
+msgid "Please enter details of available tags"
+msgstr "请输入有效标签的详细情况"
+
+#: ./interfaces.py:52
+#: ./profiles/default/registry.xml
+msgid "Pre-defined tags"
+msgstr "预定义的标签"
+
+#: ./interfaces.py:19
+msgid "Set to False to disable validation against globally specified unique and required categories."
+msgstr ""
+
+#: ./field.py:79
+#: ./interfaces.py:58
+#: ./profiles/default/registry.xml
+msgid "Tag"
+msgstr "标签"
+
+#: ./profiles/default/controlpanel.xml
+msgid "Tagging"
+msgstr "标签管理"
+
+#: ./browser/controlpanel.py:15
+msgid "Tagging settings"
+msgstr "标签设置"
+
+#: ./behaviors.py:30
+msgid "Tags"
+msgstr "标签"
+
+#: ./interfaces.py:11
+msgid "There must be a least one tag available for each category selected."
+msgstr "为每个选定的分类必须至少有一个标签有效。"
+
+#: ./interfaces.py:62
+#: ./profiles/default/registry.xml
+msgid "Unique categories"
+msgstr "一次只能提取一个标签的分类"
+
+#: ./interfaces.py:18
+msgid "Validate categories"
+msgstr "验正分类"
+
+#: ./field.py:46
+msgid "_"
+msgstr ""
+
+#. Default: "Add row"
+#: ./browser/tags_input.pt:37
+msgid "add_row"
+msgstr "加行"
+
+#. Default: "You must enter a tag in each of the following categories: ${categories}"
+#: ./browser/tags_input.pt:52
+msgid "note_required_categories"
+msgstr "下面的这些分类，每一个分类必须输入至少一个标签:${categories}"
+
+#. Default: "Note: You are using one or more uncommon tags: ${tags}"
+#: ./browser/tags_input.pt:66
+msgid "note_uncommon_tag"
+msgstr "注意：${tags}是一个或多个不常用的标签"
+
+#. Default: "You may have at most one tag in the following categories: ${unique-categories}"
+#: ./browser/tags_input.pt:59
+msgid "note_unique_categories"
+msgstr "在下面的这些分类中，你最多只能设置一个标签：${unique-categories}"
+

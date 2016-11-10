@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      tal:omit-tag=""
+      i18n:domain="plone">
+
+  <section class="portlet portletClassic" id="portal-footer-signature" metal:define-macro="portlet">
+    <div class="portletContent">     
+      <span  tal:omit-tag="">
+           <a href="http://www.emc.com" >EMC<sup>&reg;</sup>电磁兼容技术支持
+网络子系统</a>的版权
+      <abbr title="Copyright" i18n:attributes="title title_copyright;">&copy;</abbr>
+      2000-<tal:year 
+         tal:define="DateTime nocall:modules/DateTime.DateTime;
+                     myTime python:DateTime()"
+         tal:content="python:myTime.year()" />由<a href="http://www.hit.edu.cn/">哈尔滨工业大学</a>持有。</span>
+    </div>
+  </section>
+</html>

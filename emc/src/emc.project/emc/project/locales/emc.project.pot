@@ -1,0 +1,250 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2016-07-29 01:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./behaviors/richtext.py:19
+msgid "Brief Report"
+msgstr ""
+
+#: ./behaviors/localroles.py:61
+msgid "Chief Designer"
+msgstr ""
+
+#: ./behaviors/localroles.py:75
+msgid "Chief quality engineer"
+msgstr ""
+
+#: ./behaviors/localroles.py:43
+msgid "Commander"
+msgstr ""
+
+#: ./behaviors/localroles.py:68
+msgid "Deputy Chief Designer"
+msgstr ""
+
+#: ./behaviors/localroles.py:89
+msgid "Deputy Chief Process"
+msgstr ""
+
+#: ./behaviors/localroles.py:82
+msgid "Deputy Chief quality engineer"
+msgstr ""
+
+#: ./behaviors/localroles.py:52
+msgid "Deputy Commander"
+msgstr ""
+
+#: ./profiles/default/controlpanel.xml
+msgid "Document Types"
+msgstr ""
+
+#: ./browser/controlpanel.py:14
+msgid "Document types settings"
+msgstr ""
+
+#: ./behaviors/localroles.py:26
+msgid "EMC Designer"
+msgstr ""
+
+#: ./behaviors/localroles.py:118
+msgid "EMC expert"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "List document types here."
+msgstr ""
+
+#: ./interface.py:22
+msgid "List project folder allow add document types."
+msgstr ""
+
+#: ./browser/workflow_ajax.py:123
+msgid "Not able to send notifications"
+msgstr ""
+
+#: ./browser/controlpanel.py:16
+msgid "Please enter details of available types"
+msgstr ""
+
+#: ./behaviors/localroles.py:34
+msgid "Product Designer"
+msgstr ""
+
+#: ./behaviors/localroles.py:190
+msgid "The first members"
+msgstr ""
+
+#: ./behaviors/localroles.py:195
+msgid "The second members"
+msgstr ""
+
+#: ./behaviors/localroles.py:201
+msgid "The third members"
+msgstr ""
+
+#: ./interface.py:25
+msgid "Type"
+msgstr ""
+
+#: ./behaviors/dynamic_role_users.py:28
+msgid "Workflow next processor"
+msgstr ""
+
+#: ./behaviors/dynamic_role_users.py:27
+msgid "Workflow setting"
+msgstr ""
+
+#: ./vocabulary.py:11
+msgid "analysis"
+msgstr ""
+
+#: ./vocabulary.py:12
+msgid "design"
+msgstr ""
+
+#: ./behaviors/localroles.py:110
+msgid "dispatch staff"
+msgstr ""
+
+#: ./profiles/default/registry.xml
+msgid "document type"
+msgstr ""
+
+#: ./interface.py:21
+#: ./profiles/default/registry.xml
+msgid "document types"
+msgstr ""
+
+#: ./vocabulary.py:15
+msgid "experiment"
+msgstr ""
+
+#: ./behaviors/belowcontentfile.py:18
+msgid "help_attachfile"
+msgstr ""
+
+#: ./vocabulary.py:29
+msgid "inner"
+msgstr ""
+
+#. Default: "attach file below content body"
+#: ./behaviors/belowcontentfile.py:17
+msgid "label_attachfile"
+msgstr ""
+
+#: ./behaviors/localroles.py:96
+msgid "process staff"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.project.xml
+msgid "project"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.project.xml
+msgid "project content type"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.doc.xml
+msgid "project document"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.projectFolder.xml
+msgid "project folder content type"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.projectFolder.xml
+msgid "projetFolder"
+msgstr ""
+
+#: ./vocabulary.py:28
+msgid "public"
+msgstr ""
+
+#: ./behaviors/localroles.py:103
+msgid "quality manage staff"
+msgstr ""
+
+#: ./vocabulary.py:30
+msgid "secret"
+msgstr ""
+
+#: ./behaviors/security_level.py:18
+msgid "security level"
+msgstr ""
+
+#: ./vocabulary.py:14
+msgid "simulation"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:43
+msgid "submit comments"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:35
+msgid "submit to chuyang"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:55
+msgid "submit to chuyang1"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:216
+msgid "submit to chuyang2"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:355
+msgid "submit to dingxing"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:75
+msgid "submit to shiyang"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:156
+msgid "submit to shiyang1"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:434
+msgid "submit to shiyang2"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:94
+msgid "submit to zhengyang"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:175
+msgid "submit to zhengyang1"
+msgstr ""
+
+#: ./browser/templates/project_view.pt:595
+msgid "submit to zhengyang2"
+msgstr ""
+
+#: ./behaviors/task_type.py:18
+msgid "task type"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.team.xml
+msgid "team"
+msgstr ""
+
+#: ./profiles/default/types/emc.project.team.xml
+msgid "team content type"
+msgstr ""
+
+#: ./vocabulary.py:13
+msgid "train"
+msgstr ""
+

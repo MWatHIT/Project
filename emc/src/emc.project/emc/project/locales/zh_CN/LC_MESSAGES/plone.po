@@ -1,0 +1,202 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xtshzz.policy\n"
+"POT-Creation-Date: 2015-02-14 00:52+0000\n"
+"PO-Revision-Date: 2015-02-14 09:20+0800\n"
+"Last-Translator: adam <yuejun.tang@gmail.com>\n"
+"Language-Team: 315ok.org <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh_CN\n"
+"Language-Name: Chinese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+
+msgid "ChiefDesigner"
+msgstr "总设计师"
+
+#: rolemap.xml
+msgid "ChiefQE"
+msgstr "总质量师"
+
+msgid "ChuYang"
+msgstr "C"
+
+msgid "ChuYang1"
+msgstr "C1"
+
+msgid "ChuYang2"
+msgstr "C2"
+
+msgid "Commander"
+msgstr "总指挥"
+
+msgid "DeputyChiefDesigner"
+msgstr "副总设计师"
+
+msgid "DeputyChiefProcess"
+msgstr "副总工艺师"
+
+msgid "DeputyChiefQE"
+msgstr "副总质量师"
+
+msgid "DeputyCommander"
+msgstr "副总指挥"
+
+msgid "Designer"
+msgstr "产品设计师"
+
+msgid "DingXing"
+msgstr "D"
+
+msgid "DispatchStaff"
+msgstr "计划调度人员"
+
+msgid "EMCDesigner"
+msgstr "电磁兼容设计师"
+
+msgid "EMCExpert"
+msgstr "电磁兼容专家"
+
+msgid "FangAn"
+msgstr "M"
+
+msgid "ProcessStaff"
+msgstr "工艺师"
+
+msgid "QualityManageStaff"
+msgstr "质量管理人员"
+
+msgid "Retract to chuyang"
+msgstr "回退到C"
+
+msgid "Retract to chuyang1"
+msgstr "回退到C1"
+
+msgid "Retract to chuyang2"
+msgstr "回退到C2"
+
+msgid "Retract to fangan"
+msgstr "回退到M"
+
+msgid "Retract to shiyang"
+msgstr "回退到S"
+
+msgid "Retract to shiyang1"
+msgstr "回退到S1"
+
+msgid "Retract to shiyang2"
+msgstr "回退到S2"
+
+msgid "Retract to zhengyang"
+msgstr "回退到Z"
+
+msgid "Retract to zhengyang1"
+msgstr "回退到Z1"
+
+msgid "Retract to zhengyang2"
+msgstr "回退到Z2"
+
+msgid "ShiYang"
+msgstr "S"
+
+msgid "ShiYang1"
+msgstr "S1"
+
+msgid "ShiYang2"
+msgstr "S2"
+
+msgid "Submit to chuyang"
+msgstr "提交到C"
+
+msgid "Submit to chuyang1"
+msgstr "提交到C1"
+
+msgid "Submit to chuyang2"
+msgstr "提交到C2"
+
+# workflow  transition
+msgid "Submit to dingxing"
+msgstr "提交到D"
+
+msgid "Submit to fangan"
+msgstr "提交到M"
+
+msgid "Submit to shiyang"
+msgstr "提交到S"
+
+msgid "Submit to shiyang1"
+msgstr "提交到S1"
+
+msgid "Submit to shiyang2"
+msgstr "提交到S2"
+
+msgid "Submit to zhengyang"
+msgstr "提交到Z"
+
+msgid "Submit to zhengyang1"
+msgstr "提交到Z1"
+
+msgid "Submit to zhengyang2"
+msgstr "提交到Z2"
+
+msgid "ZhengYang"
+msgstr "Z"
+
+msgid "ZhengYang1"
+msgstr "Z1"
+
+msgid "ZhengYang2"
+msgstr "Z2"
+
+msgid "chuyang"
+msgstr "C"
+
+msgid "chuyang1"
+msgstr "C1"
+
+msgid "chuyang2"
+msgstr "C2"
+
+msgid "dingxing"
+msgstr "D"
+
+msgid "fangan"
+msgstr "M"
+
+msgid "shiyang"
+msgstr "S"
+
+msgid "shiyang1"
+msgstr "S1"
+
+msgid "shiyang2"
+msgstr "S2"
+
+msgid "zhengyang"
+msgstr "Z"
+
+msgid "zhengyang1"
+msgstr "Z1"
+
+msgid "zhengyang2"
+msgstr "Z2"
+
+msgid "Status view"
+msgstr "状态视图"
+
+msgid "Ajax view"
+msgstr "Ajax视图"
+
+msgid "ModificationDate"
+msgstr "修改时间"
+
+msgid "Folder view"
+msgstr "文件夹视图"
+
+msgid "Report view"
+msgstr "简报视图"
+
+

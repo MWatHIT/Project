@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"      
+      i18n:domain="emc.bokeh">        
+<head>
+   <metal:block fill-slot="style_slot">
+       <link rel="stylesheet" type="text/css"
+            tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="href string:${navroot}/++resource++emc.bokeh/bokeh.min.css"
+            />
+   </metal:block>
+   <metal:block fill-slot="javascript_head_slot">
+       <script 
+       	tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+       	tal:attributes="src string:${navroot}/++resource++emc.bokeh/bokeh.min.js"></script>
+   	   <script tal:replace="structure python:view.getPlot()['js']">   	
+       </script>         	
+   </metal:block>	
+</head>
+
+<body>
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+    	<!-- jquery ajax callback function update status notify -->
+    	<div class="row" id="ajax-status-notify" style="display:none;">
+    		<div class="col-xs-12">notify message</div>
+    	</div>
+    	<section class="sumary">
+			<div class="page-header">
+           <h1>           	
+           	<span tal:replace="python:context.title">fearture</span>
+           </h1>
+		   <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle" />           				
+           <h2>           	
+           	<span tal:replace="python:context.description">fearture description</span>
+           </h2>
+      </div>
+      </section>
+      <!--
+      <section>
+      	<iframe width="99%" height="100%"  frameborder="0" scrolling="auto"
+      		tal:attributes="src python:view.embedPlot4html()" >
+      	</iframe>	
+      </section>
+      -->
+      <section class="plot" tal:content="structure python:view.getPlot()['div']">      	
+      </section>
+      <!-- 
+       <section class="text"
+       		tal:define="con python:context.text"
+       		tal:condition="con">
+       	<div class="row">
+       		<div class="col-md-12"
+       			tal:content="structure python:con.output">text content</div>
+       	</div>      	
+      </section> 
+      -->                
+    </tal:main-macro>
+</metal:main>
+</body>
+</html>

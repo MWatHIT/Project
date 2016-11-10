@@ -1,0 +1,59 @@
+
+Some Tests
+----------
+
+Just use the behavior ``collective.filepreviewbehavior.interfaces.IPreviewable`` in
+your dexterity content type::
+
+    >>> from plone.dexterity.fti import DexterityFTI
+    >>> fti = DexterityFTI('TestingType')
+    >>> fti.behaviors = (
+    ...         'collective.filepreviewbehavior.interfaces.IPreviewable',
+    ... )
+    >>> self.portal.portal_types._setObject('TestingType', fti)
+    'TestingType'
+    >>> schema = fti.lookupSchema()
+
+
+Create a new Browser and connect it::
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    >>> self.app.acl_users.userFolderAddUser('root', 'secret', ['Manager'], [])
+    >>> browser.addHeader('Authorization', 'Basic root:secret')
+
+
+Now we should be able to create a new TestingType-object::
+
+    >>> browser.open('http://nohost/plone/folder_factories')
+    >>> 'TestingType' in browser.contents
+    True
+    >>> browser.getControl("TestingType").click()
+    >>> browser.getControl("Add").click()
+    >>> browser.url
+    'http://nohost/plone/++add++TestingType'
+    >>> browser.getControl(name='form.widgets.title').value = 'Blubb'
+    >>> browser.getControl(name='form.buttons.save').click()
+    >>> browser.url
+    'http://nohost/plone/testingtype/view'
+
+
+We should be able to access the object, it should provide the behavior
+interface ``collective.filepreviewbehavior.interfaces.IPreviewable``, since
+the behavior does not use a factory::
+
+    >>> obj = self.portal.get('testingtype')
+    >>> from collective.filepreviewbehavior.interfaces import IPreviewable
+    >>> IPreviewable.providedBy(obj)
+    True
+
+
+The object should be editable afterwards...
+
+    >>> browser.open('http://nohost/plone/testingtype/edit')
+    >>> browser.getControl(name='form.widgets.title').value = 'Blubb2'
+    >>> browser.getControl(name='form.buttons.save').click()
+    >>> browser.url
+    'http://nohost/plone/testingtype'
+

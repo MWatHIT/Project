@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+
+  <layer name="emc.theme"
+         interface="emc.theme.interfaces.IThemeSpecific"/>
+
+</layers>

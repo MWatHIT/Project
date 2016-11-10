@@ -1,0 +1,55 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"  
+    i18n_domain="plone">
+
+  <!-- Register static resource directory -->
+	<browser:resourceDirectory
+  		name="emc.bokeh"
+  		directory="static" />
+   <browser:page
+        name="datainout-getCSVTemplate"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".datainout.DataInOut"
+        attribute="getCSVTemplate"
+        permission="cmf.ManagePortal"
+
+        />
+   <browser:page
+        name="ajaxupdate"
+        for="emc.bokeh.content.code2plot.ICodeFile"
+        class="emc.bokeh.browser.ajax_view.Update"               
+        permission="zope2.View"        
+        />        
+   <browser:page
+        name="source2plot"
+        for="emc.bokeh.content.code2plot.ICodeFile"
+        class="emc.bokeh.browser.codefile_view.CodeFileView"
+        template="templates/code2file_view.pt"
+        layer="emc.theme.interfaces.IThemeSpecific"        
+        permission="zope2.View"
+        menu="plone_displayviews"
+        title="Plot view"        
+        />
+   <browser:page
+      name="source_code"
+      for="emc.bokeh.content.code2plot.ICodeFile"
+      class="emc.policy.browser.file.FileView"
+      template="templates/file.pt"
+      layer="emc.theme.interfaces.IThemeSpecific" 
+      permission="zope2.View"
+      menu="plone_displayviews"
+      title="Source code"
+      />                    		
+  <include package="z3c.form" file="meta.zcml" />
+  <include package="z3c.form" />
+ 
+
+   <z3c:widgetTemplate
+        mode="input"
+ 		widget="emc.bokeh.browser.interfaces.IFileWidget"        
+ 		layer="emc.theme.interfaces.IThemeSpecific"
+ 		template="templates/file_input.pt" />
+		       
+</configure>

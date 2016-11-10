@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object name="File" meta_type="Dexterity FTI" i18n:domain="plone"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+  <property name="immediate_view">view</property>
+  <property name="default_view">file_review</property>
+  <property name="view_methods" purge="false">
+  <element value="file_review"/>
+ </property>
+ <property name="behaviors" purge="false">
+ 	<element value="plone.app.versioningbehavior.behaviors.IVersionable" />
+ </property>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    icon_expr="" link_target="" url_expr="string:${object_url}/file_review"
+    visible="True" i18n:attributes="title">
+  <permission value="View"/>
+ </action>
+ <action title="External Edit" action_id="externaledit" category="object" condition_expr=""
+    icon_expr="" link_target="" url_expr="string:${object_url}/file_review"
+    visible="True" i18n:attributes="title">    
+  <permission value="Modify portal content"/>
+ </action>
+</object>
