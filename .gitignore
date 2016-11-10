@@ -1,47 +1,83 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+*.pyc
+/.BUILDSTART
+/dist
+/local
+/logs
+/upstream
 
-# Folder config file
-Desktop.ini
+#############################
+# Autotools generated files #
+#############################
+/aclocal.m4
+/autom4te.cache/
+/config/
+/config.log
+/config.status
+/configure
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+###################
+# Temporary Files #
+###################
 
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
+# Various editors
+*~
 
-# Windows shortcuts
-*.lnk
+# Emacs
+\#*\#
+.\#*
 
-# =========================
-# Operating System Files
-# =========================
+# Vim
+*.swp
+*.swo
+*.swn
+*.un~
+.netrwhist
 
-# OSX
-# =========================
+# PyCharm
+.idea
+.iml
 
+# XCode
+xcuserdata/
+
+# Eclipse
+*.pydevproject
+.project
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+.cproject
+.buildpath
+
+# OSX specific temporary files
 .DS_Store
+._*
 .AppleDouble
 .LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
 .Spotlight-V100
-.TemporaryItems
 .Trashes
-.VolumeIcon.icns
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Windows
+$RECYCLE.BIN/
+
+# SublimeText
+*.sublime-workspace
+
+#################
+# SageMathCloud #
+#################
+*.sage-chat
+*.sage-history
+*.syncdoc*
+
+###########
+# Jupyter #
+###########
+.ipynb_checkpoints
+Untitled*.ipynb
