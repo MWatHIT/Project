@@ -1,8 +1,8 @@
 *.pyc
-/.BUILDSTART
-/dist
-/local
-/logs
+ahi/.BUILDSTART
+ahi/dist
+ahi/local
+ahi/logs
 /upstream
 
 #############################
@@ -10,10 +10,10 @@
 #############################
 /aclocal.m4
 /autom4te.cache/
-/config/
-/config.log
-/config.status
-/configure
+ahi/config/
+ahi/config.log
+ahi/config.status
+ahi/configure
 
 ###################
 # Temporary Files #
