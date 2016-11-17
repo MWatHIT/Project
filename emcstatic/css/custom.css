@@ -1,0 +1,17 @@
+.navbar-brand {color:#FFFFFF}
+.label {color:#333333;}
+.over a {color:#387038;font-weight:600}
+.fenlei_a span {padding-right:3px;}
+.portlet .portletContent > ul > li a {text-decoration:none}
+.portletNavigationTree .portletContent .navTreeLevel2 a {padding-left:50px}
+.portletNavigationTree .portletContent .navTreeLevel3 a {padding-left:60px}
+.portletNavigationTree .portletContent .navTreeLevel4 a {padding-left:70px}
+#right-nav {margin-right:20px;}
+#portaltab-diancijisuanji,.plone-toolbar-logo img,.bk-toolbar-active a.bk-logo {display:none}
+.preview pre {min-height:200px;max-height:480px;overflow:auto;}
+.livesearch-results{color: #000000;}
+.dropdown-menu .navTreeLevel2 {padding-left:10px}
+#workspace .tabcontent-lists {padding-left:12px;}
+#workspace a.text-center {cursor:pointer} 
+#ajaxdisplay {margin-left:0;margin-right:0}
+
